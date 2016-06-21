@@ -8,15 +8,15 @@ import datetime
 from gpiozero import LED
 import logging
 
-logging.basicConfig(filename='fishtank.log',level=logging.DEBUG)
-logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.basicConfig(filename='fishtank.log', format='%(asctime)s %(levelname)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+
 logging.info('start program')
 
 relay1 = LED(17)
 relay2 = LED(18)
-start = datetime.time(6)
+start = datetime.time(5, 30)
 start_str = str(start)[:5]
-end = datetime.time(21,28)
+end = datetime.time(20, 45)
 end_str = str(end)[:5]
 
 
@@ -32,9 +32,11 @@ def relay1_off():
 
 schedule.every().day.at(start_str).do(relay1_on)
 schedule.every().day.at(end_str).do(relay1_off)
+logging.info('start light on='+ start_str)
+logging.info('end light off='+ end_str)
 
 timestamp = datetime.datetime.now().time()
-logging.info('timestamp='+ str(timestamp)[:5])
+logging.info('nowtime ='+ str(timestamp)[:5])
 
 if start <= timestamp <= end:
     relay1_on()
