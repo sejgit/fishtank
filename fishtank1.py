@@ -1,6 +1,7 @@
 # fish tank scheduler & data collector
 # thomas & dad
 # 2016 06 20
+# 2016 06 21 update for logging
 
 import schedule
 import time
@@ -8,7 +9,7 @@ import datetime
 from gpiozero import LED
 import logging
 
-logging.basicConfig(filename='fishtank.log', format='%(asctime)s %(levelname)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+logging.basicConfig(filename='fishtank/fishtank.log', format='%(asctime)s %(levelname)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
 logging.info('start program')
 
