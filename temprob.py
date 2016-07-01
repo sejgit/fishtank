@@ -31,5 +31,5 @@ def read_temp():
 	
 while True:
         deg_c, deg_f = read_temp()
-	print "celcius %d  fareniet %d" (deg_c, deg_f)
+	print "celcius %d  fareniet %d" % (deg_c, deg_f)
 	time.sleep(5)
