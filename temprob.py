@@ -28,8 +28,11 @@ def read_temp():
         temp_c = float(temp_string) / 1000.0
         temp_f = temp_c * 9.0 / 5.0 + 32.0
         return temp_c, temp_f
-	
+
+
 while True:
         deg_c, deg_f = read_temp()
-	print("celcius %.2f  fareniet %.2f" % (deg_c, deg_f))
-	time.sleep(5)
+        print("celcius %.2f  fareniet %.2f" % (deg_c, deg_f))
+        time.sleep(5)
+
+        
