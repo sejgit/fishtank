@@ -32,7 +32,7 @@ def read_temp():
 
 while True:
         deg_c, deg_f = read_temp()
-        print "celcius %.2f  fahrenheit %.2f" % (deg_c, deg_f)
+        print("celcius %.2f  fahrenheit %.2f" % (deg_c, deg_f))
         time.sleep(5)
 
 
