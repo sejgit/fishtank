@@ -30,5 +30,6 @@ def read_temp():
         return temp_c, temp_f
 	
 while True:
-	print(read_temp())	
-	time.sleep(1)
+        deg_c, deg_f = read_temp()
+	print(deg_c, deg_f)
+	time.sleep(5)
