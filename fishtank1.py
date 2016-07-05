@@ -34,6 +34,7 @@ base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 ast = "*"
+x = 1
 
 # temp prob def
 def read_temp_raw():
@@ -66,14 +67,17 @@ def relay1_off():
     logging.debug('relay1_off')
     return
 
+# set schedule
 schedule.every().day.at(start_str).do(relay1_on)
 schedule.every().day.at(end_str).do(relay1_off)
 logging.info('start light on='+ start_str)
 logging.info('end light off='+ end_str)
 
+# timestamp
 timestamp = datetime.datetime.now().time()
 logging.info('nowtime ='+ str(timestamp)[:5])
 
+# start or stop light/bubbles on first run
 if start <= timestamp <= end:
     relay1_on()
     logging.info('start relay1_on')
@@ -82,6 +86,7 @@ else:
     logging.info('start relay1_off')
 
 
+# main loop
 while True:
     schedule.run_pending()
     try:
@@ -93,6 +98,11 @@ while True:
             ast = " "
         with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
             f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
+            if x >= 10:
+                x = 1
+                logging.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
+            else:
+                x += 1
         f.closed 
     except KeyboardInterrupt:
         print('\n\nKeyboard exception. Exiting.\n')
