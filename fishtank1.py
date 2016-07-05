@@ -14,7 +14,7 @@ import glob
 import subprocess
 
 # get logging going
-logging.basicConfig(filename='fishtank/fishtank.log', format='%(asctime)s %(levelname)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+logging.basicConfig(filename='/home/pi/fishtank/fishtank.log', format='%(asctime)s %(levelname)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
 logging.info('start program')
 
