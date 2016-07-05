@@ -32,7 +32,10 @@ def read_temp():
 
 while True:
         deg_c, deg_f = read_temp()
-        print('celcius {0:.2f}  fahrenheit {1:.2f}'.format(deg_c, deg_f))
+        with open('file', 'w') as f:
+          f.write('celcius {0:.2f}  fahrenheit {1:.2f}'.format(deg_c, deg_f))
+        f.closed
         time.sleep(5)
+        break
 
 
