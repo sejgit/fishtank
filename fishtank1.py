@@ -108,6 +108,8 @@ if start <= timestamp <= end:
 else:
     relay1_off()
     logger.info('start relay1_off')
+deg_c, deg_f = read_temp()
+logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
 
 
 # main loop
