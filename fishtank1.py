@@ -17,7 +17,6 @@ import glob
 import subprocess
 
 # get logging going
-# logging.basicConfig(filename='/home/pi/fishtank/fishtank.log', fmt='%(asctime)s %(levelname)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
 # set up a specific logger with desired output level
 LOG_FILENAME = '/home/pi/fishtank/fishtank.log'
@@ -108,6 +107,8 @@ if start <= timestamp <= end:
 else:
     relay1_off()
     logger.info('start relay1_off')
+
+# log temp on first run
 deg_c, deg_f = read_temp()
 logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
 
@@ -118,22 +119,30 @@ while True:
     try:
         time.sleep(60) # wait one minute
         deg_c, deg_f = read_temp()
+
+        # heartbeat
         if ast==" ":
             ast = "*"
         else:
             ast = " "
+
+        # overlay text onto RPi camera
         with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
             f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
+
+            # once an hour log the temperature
             if x >= 60:
                 x = 1
                 logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
             else:
                 x += 1
         f.closed
+
     except KeyboardInterrupt:
         print('\n\nKeyboard exception. Exiting.\n')
         logger.info('keyboard exception')
         exit()
+
     except:
         logger.info('end program')
         exit()
