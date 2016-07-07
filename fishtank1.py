@@ -21,7 +21,7 @@ import subprocess
 
 # set up a specific logger with desired output level
 LOG_FILENAME = '/home/pi/fishtank/fishtank.log'
-logger.getLogger('FishTankLogger')
+logger = logging.getLogger('FishTankLogger')
 logger.setLevel(logging.DEBUG)
 
 # add the rotating log message handler
