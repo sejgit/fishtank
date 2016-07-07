@@ -3,20 +3,41 @@
 # 2016 06 20
 # 2016 06 21 update for logging
 # 2016 07 05 added temp prob & overlay to camera
+# 2016 07 06 changed logging to complex form
 
+# imports
 import schedule
 import time
 import datetime
 from gpiozero import LED
 import logging
+import logging.handlers
 import os
 import glob
 import subprocess
 
 # get logging going
-logging.basicConfig(filename='/home/pi/fishtank/fishtank.log', format='%(asctime)s %(levelname)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
+# logging.basicConfig(filename='/home/pi/fishtank/fishtank.log', fmt='%(asctime)s %(levelname)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.DEBUG)
 
-logging.info('start program')
+# set up a specific logger with desired output level
+LOG_FILENAME = '/home/pi/fishtank/fishtank.log'
+logging = logging.getlogger('FishTankLogger')
+logging.setLevel(logging.DEBUG)
+
+# add the log message handler to the logger
+fh = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=20000, backupCount=5)
+logging.addHandler(fh)
+fh.setLevel(logging.DEBUG)
+
+# create formatter and add it to the handlers
+formatter = logging.Formatter(fmt='%(asctime)s %(levelname)s %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+fh.setFormatter(formatter)
+
+# add the handlers to the logger
+logging.addHandler(fh)
+
+
+logging.info('***start program')
 
 # relay variables
 relay1 = LED(17)
@@ -29,6 +50,10 @@ end_str = str(end)[:5]
 # temp prob set-up and vars
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
+
+# prowl vars
+daily = datetime.time(12, 00)
+
 
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
@@ -98,12 +123,12 @@ while True:
             ast = " "
         with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
             f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
-            if x >= 10:
+            if x >= 60:
                 x = 1
                 logging.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
             else:
                 x += 1
-        f.closed 
+        f.closed
     except KeyboardInterrupt:
         print('\n\nKeyboard exception. Exiting.\n')
         logging.info('keyboard exception')
