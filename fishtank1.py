@@ -21,7 +21,7 @@ import subprocess
 
 # set up a specific logger with desired output level
 LOG_FILENAME = '/home/pi/fishtank/fishtank.log'
-logging = logging.getlogger('FishTankLogger')
+logging = logging.getLogger('FishTankLogger')
 logging.setLevel(logging.DEBUG)
 
 # add the log message handler to the logger
