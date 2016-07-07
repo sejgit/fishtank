@@ -21,12 +21,11 @@ import subprocess
 
 # set up a specific logger with desired output level
 LOG_FILENAME = '/home/pi/fishtank/fishtank.log'
-logging = logging.getLogger('FishTankLogger')
-logging.setLevel(logging.DEBUG)
+logger.getLogger('FishTankLogger')
+logger.setLevel(logging.DEBUG)
 
-# add the log message handler to the logger
+# add the rotating log message handler
 fh = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=20000, backupCount=5)
-logging.addHandler(fh)
 fh.setLevel(logging.DEBUG)
 
 # create formatter and add it to the handlers
@@ -34,10 +33,10 @@ formatter = logging.Formatter(fmt='%(asctime)s %(levelname)s %(message)s', datef
 fh.setFormatter(formatter)
 
 # add the handlers to the logger
-logging.addHandler(fh)
+logger.addHandler(fh)
 
 
-logging.info('***start program')
+logger.info('***start program')
 
 # relay variables
 relay1 = LED(17)
@@ -84,31 +83,31 @@ def read_temp():
 # relay def
 def relay1_on():
     relay1.off()
-    logging.debug('relay1_on')
+    logger.debug('relay1_on')
     return
 
 def relay1_off():
     relay1.on()
-    logging.debug('relay1_off')
+    logger.debug('relay1_off')
     return
 
 # set schedule
 schedule.every().day.at(start_str).do(relay1_on)
 schedule.every().day.at(end_str).do(relay1_off)
-logging.info('start light on='+ start_str)
-logging.info('end light off='+ end_str)
+logger.info('start light on='+ start_str)
+logger.info('end light off='+ end_str)
 
 # timestamp
 timestamp = datetime.datetime.now().time()
-logging.info('nowtime ='+ str(timestamp)[:5])
+logger.info('nowtime ='+ str(timestamp)[:5])
 
 # start or stop light/bubbles on first run
 if start <= timestamp <= end:
     relay1_on()
-    logging.info('start relay1_on')
+    logger.info('start relay1_on')
 else:
     relay1_off()
-    logging.info('start relay1_off')
+    logger.info('start relay1_off')
 
 
 # main loop
@@ -125,16 +124,16 @@ while True:
             f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
             if x >= 60:
                 x = 1
-                logging.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
+                logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
             else:
                 x += 1
         f.closed
     except KeyboardInterrupt:
         print('\n\nKeyboard exception. Exiting.\n')
-        logging.info('keyboard exception')
+        logger.info('keyboard exception')
         exit()
     except:
-        logging.info('end program')
+        logger.info('end program')
         exit()
 
 
