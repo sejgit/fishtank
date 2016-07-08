@@ -77,7 +77,9 @@ base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 ast = "*"
-x = 1
+temp_f_hi = 80
+temp_f_lo = 70
+
 
 # prowl vars
 daily = datetime.time(12, 00)
@@ -101,7 +103,13 @@ def read_temp():
         temp_string = lines[1][equals_pos+2:]
         temp_c = float(temp_string) / 1000.0
         temp_f = temp_c * 9.0 / 5.0 + 32.0
-        return temp_c, temp_f
+        if temp_f > temp_f_hi:
+            status = 'hi'
+        elif temp_f < temp_f_lo:
+            status = 'lo'
+        else:
+            status = 'ok'
+        return temp_c, temp_f, status
 
 # relay def
 def relay1_on():
@@ -116,9 +124,9 @@ def relay1_off():
 
 # writing of temps
 def hourlylog():
-    deg_c, deg_f = read_temp()
-    logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
-    templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
+    deg_c, deg_f, status = read_temp()
+    logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+ast))
+    templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+ast))
     return
 
 
@@ -150,7 +158,7 @@ while True:
     schedule.run_pending()
     try:
         time.sleep(60) # wait one minute
-        deg_c, deg_f = read_temp()
+        deg_c, deg_f, status = read_temp()
 
         # heartbeat
         if ast==" ":
@@ -160,8 +168,8 @@ while True:
 
         # overlay text onto RPi camera
         with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
-            f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
-            templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
+            f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+ast))
+            templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+ast))
         f.closed
 
     except KeyboardInterrupt:
