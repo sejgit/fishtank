@@ -76,7 +76,6 @@ os.system('modprobe w1-therm')
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
-ast = "*"
 temp_f_hi = 80
 temp_f_lo = 75
 
@@ -123,12 +122,24 @@ def relay1_off():
     return
 
 # writing of temps
-def hourlylog():
+def templog():
     deg_c, deg_f, status = read_temp()
-    logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+ast))
-    templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+ast))
+    templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status))
     return
 
+def dailylog():
+    deg_c, deg_f, status = read_temp()
+    logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status))
+    templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status))
+    return
+
+# other defined functions
+def heartbeat(ast)
+    if ast==" ":
+        ast = "*"
+    else:
+        ast = " "
+    return ast
 
 ### first run items
 # set scheduled events
@@ -136,7 +147,8 @@ schedule.every().day.at(start_str).do(relay1_on)  # light/bubbler ON in morning
 schedule.every().day.at(end_str).do(relay1_off)   # light/bubler OFF at night
 logger.info('start light on='+ start_str)
 logger.info('end light off='+ end_str)
-schedule.every().hour.do(hourlylog)    # hourly log temp to logger & templogger
+schedule.every(15).minutes.do(templog)    # log temp to templogger
+schedule.every().day.do(dailylog)    # daily log temp to logger & temp logger
 
 # timestamp
 timestamp = datetime.datetime.now().time()
@@ -151,25 +163,19 @@ else:
     logger.info('start relay1_off')
 
 # log temp on first run
-hourlylog()
+dailylog()
 
 ### main loop
 while True:
     schedule.run_pending()
     try:
         time.sleep(60) # wait one minute
+        hb = heartbeat(hb)
         deg_c, deg_f, status = read_temp()
-
-        # heartbeat
-        if ast==" ":
-            ast = "*"
-        else:
-            ast = " "
 
         # overlay text onto RPi camera
         with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
-            f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+ast))
-            templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+ast))
+            f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+hb))
         f.closed
 
     except KeyboardInterrupt:
