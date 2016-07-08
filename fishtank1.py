@@ -43,7 +43,7 @@ templogger = logging.getLogger('FishTempLogger')
 templogger.setLevel(logging.DEBUG)
 
 # add the rotating log message handler
-tfh = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=0, backupCount=5)
+tfh = logging.handlers.RotatingFileHandler(TEMP_LOG_FILENAME, maxBytes=0, backupCount=5)
 tfh.setLevel(logging.DEBUG)
 
 # create formatter and add it to the handlers
