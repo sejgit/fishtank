@@ -134,7 +134,7 @@ def dailylog():
     return
 
 # other defined functions
-def heartbeat(ast)
+def heartbeat(ast):
     if ast==" ":
         ast = "*"
     else:
