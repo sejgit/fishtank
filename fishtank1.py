@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # fish tank scheduler & data collector
 # thomas & dad
 # 2016 06 20
@@ -6,7 +7,7 @@
 # 2016 07 06 changed logging to complex form
 # 2016 07 07 add temperature logging
 
-# imports
+### imports
 import schedule
 import time
 import datetime
@@ -17,7 +18,7 @@ import os
 import glob
 import subprocess
 
-# get logging going
+### get logging going
 
 # set up a specific logger with desired output level
 LOG_FILENAME = '/home/pi/fishtank/fishtank.log'
@@ -35,7 +36,7 @@ fh.setFormatter(formatter)
 # add the handlers to the logger
 logger.addHandler(fh)
 
-# get temperature logging going
+### get temperature logging going
 
 # set up temp logger with desired output level
 TEMP_LOG_FILENAME = '/home/pi/fishtank/fishtemp.log'
@@ -57,6 +58,9 @@ templogger.addHandler(tfh)
 logger.info('***start program')
 templogger.info('***start program')
 
+
+### variables
+
 # relay variables
 relay1 = LED(17)
 relay2 = LED(18)
@@ -69,16 +73,16 @@ end_str = str(end)[:5]
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
-# prowl vars
-daily = datetime.time(12, 00)
-
-
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 ast = "*"
 x = 1
 
+# prowl vars
+daily = datetime.time(12, 00)
+
+### defined functions
 # temp prob def
 def read_temp_raw():
 	catdata = subprocess.Popen(['cat',device_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -110,11 +114,21 @@ def relay1_off():
     logger.debug('relay1_off')
     return
 
-# set schedule
-schedule.every().day.at(start_str).do(relay1_on)
-schedule.every().day.at(end_str).do(relay1_off)
+# writing of temps
+def hourlylog():
+    deg_c, deg_f = read_temp()
+    logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
+    templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
+    return
+
+
+### first run items
+# set scheduled events
+schedule.every().day.at(start_str).do(relay1_on)  # light/bubbler ON in morning
+schedule.every().day.at(end_str).do(relay1_off)   # light/bubler OFF at night
 logger.info('start light on='+ start_str)
 logger.info('end light off='+ end_str)
+schedule.every().hour.do(hourlylog)    # hourly log temp to logger & templogger
 
 # timestamp
 timestamp = datetime.datetime.now().time()
@@ -129,11 +143,9 @@ else:
     logger.info('start relay1_off')
 
 # log temp on first run
-deg_c, deg_f = read_temp()
-logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
-templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
+hourlylog()
 
-# main loop
+### main loop
 while True:
     schedule.run_pending()
     try:
@@ -150,12 +162,6 @@ while True:
         with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
             f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
             templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
-            # once an hour log the temperature
-            if x >= 60:
-                x = 1
-                logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
-            else:
-                x += 1
         f.closed
 
     except KeyboardInterrupt:
