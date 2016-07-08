@@ -78,7 +78,7 @@ device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
 ast = "*"
 temp_f_hi = 80
-temp_f_lo = 70
+temp_f_lo = 75
 
 
 # prowl vars
