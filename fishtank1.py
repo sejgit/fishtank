@@ -6,6 +6,8 @@
 # 2016 07 05 added temp prob & overlay to camera
 # 2016 07 06 changed logging to complex form
 # 2016 07 07 add temperature logging
+# todos: log errors, prowl errors, max mins and/or trends, sej.dyndns.info:443/fishtank
+# maybe: graph temps & overlay, button to turn light on at will, auto feeder
 
 ### imports
 import schedule
