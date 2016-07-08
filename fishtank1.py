@@ -15,6 +15,7 @@ from gpiozero import LED
 import logging
 import logging.handlers
 import os
+import sys
 import glob
 import subprocess
 
@@ -76,6 +77,7 @@ os.system('modprobe w1-therm')
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
+hb = "*"
 temp_f_hi = 80
 temp_f_lo = 75
 
@@ -184,7 +186,7 @@ while True:
         exit()
 
     except:
-        logger.info('end program')
+        logger.info('program end:', sys.exc_info()[0])
         exit()
 
 
