@@ -4,6 +4,7 @@
 # 2016 06 21 update for logging
 # 2016 07 05 added temp prob & overlay to camera
 # 2016 07 06 changed logging to complex form
+# 2016 07 07 add temperature logging
 
 # imports
 import schedule
@@ -34,8 +35,27 @@ fh.setFormatter(formatter)
 # add the handlers to the logger
 logger.addHandler(fh)
 
+# get temperature logging going
+
+# set up temp logger with desired output level
+TEMP_LOG_FILENAME = '/home/pi/fishtank/fishtemp.log'
+templogger = logging.getLogger('FishTempLogger')
+templogger.setLevel(logging.DEBUG)
+
+# add the rotating log message handler
+tfh = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=0, backupCount=5)
+tfh.setLevel(logging.DEBUG)
+
+# create formatter and add it to the handlers
+tempformatter = logging.Formatter(fmt='%(asctime)s %(levelname)s %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+tfh.setFormatter(tempformatter)
+
+# add the handlers to the logger
+templogger.addHandler(tfh)
+
 
 logger.info('***start program')
+templogger.info('***start program')
 
 # relay variables
 relay1 = LED(17)
@@ -111,7 +131,7 @@ else:
 # log temp on first run
 deg_c, deg_f = read_temp()
 logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
-
+templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
 
 # main loop
 while True:
@@ -129,7 +149,7 @@ while True:
         # overlay text onto RPi camera
         with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
             f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
-
+            templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, ast))
             # once an hour log the temperature
             if x >= 60:
                 x = 1
