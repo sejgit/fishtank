@@ -48,7 +48,7 @@ with open('/home/pi/fishtank/fishtemp.log') as csvfile:
     temps_f = []
     statuss = []
     for row in readCSV:
-        if row[2] == 'celcius':
+        if row[3] == 'celcius':
             date = row[0]
             time = row[1]
             temp_c = row[4]
