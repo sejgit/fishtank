@@ -60,7 +60,7 @@ with open('/home/pi/fishtank/fishtemp.log') as csvfile:
             temps_f.append(temp_f)
             statuss.append(status)
         else:
-            print row[2]
+            print(row[2],)
 
     print(dates)
     print(times)
