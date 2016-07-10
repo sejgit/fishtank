@@ -51,8 +51,8 @@ with open('/home/pi/fishtank/fishtemp.log') as csvfile:
         if row[3] == 'celcius':
             date = row[0]
             time = row[1]
-            temp_c = row[4]
-            temp_f = row[7]
+            temp_c = float(row[4])
+            temp_f = float(row[7])
             status = row[9]
             dates.append(date)
             times.append(time)
@@ -67,5 +67,9 @@ with open('/home/pi/fishtank/fishtemp.log') as csvfile:
     print(temps_c)
     print(temps_f)
     print(statuss)
+    high = max(temp_f)
+    low = min(temp_f)
+    print(max, min)
+    
 
 
