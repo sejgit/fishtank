@@ -42,8 +42,28 @@ logger.info('***start program')
 
 with open('/home/pi/fishtank/fishtemp.log') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=" ")
+    dates = []
+    times = []
+    temps_c = []
+    temps_f = []
+    statuss = []
     for row in readCSV:
-        print(row)
-        print(row[0])
-        print(row[0], row[1], row[2],)
-        
+        if row[2] == 'celcius':
+            date = row[0]
+            time = row[1]
+            temp_c = row[4]
+            temp_f = row[6]
+            status = row[7]
+            dates.append(date)
+            times.append(time)
+            temps_c.append(temp_c)
+            temps_f.append(temp_f)
+            statuss.append(status)
+
+    print(dates)
+    print(times)
+    print(temps_c)
+    print(temps_f)
+    print(statuss)
+
+
