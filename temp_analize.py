@@ -52,8 +52,8 @@ with open('/home/pi/fishtank/fishtemp.log') as csvfile:
             date = row[0]
             time = row[1]
             temp_c = row[4]
-            temp_f = row[6]
-            status = row[7]
+            temp_f = row[7]
+            status = row[9]
             dates.append(date)
             times.append(time)
             temps_c.append(temp_c)
