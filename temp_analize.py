@@ -60,15 +60,15 @@ with open('/home/pi/fishtank/fishtemp.log') as csvfile:
             temps_f.append(temp_f)
             statuss.append(status)
         else:
-            print(row[2],)
+            print(row[3],)
 
     print(dates)
     print(times)
     print(temps_c)
     print(temps_f)
     print(statuss)
-    high = max(temp_f)
-    low = min(temp_f)
+    high = max(temps_f)
+    low = min(temps_f)
     print(max, min)
     
 
