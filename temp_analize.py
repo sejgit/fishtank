@@ -7,14 +7,14 @@
 
 ### imports
 import csv
+import logging
+import logging.handlers
 
 """
 import schedule
 import time
 import datetime
 from gpiozero import LED
-import logging
-import logging.handlers
 import os
 import sys
 import glob
