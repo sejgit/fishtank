@@ -69,7 +69,7 @@ with open('/home/pi/fishtank/fishtemp.log') as csvfile:
     print(statuss)
     high = max(temps_f)
     low = min(temps_f)
-    print(max, min)
+    print(low, high)
     
 
 
