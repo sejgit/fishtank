@@ -7,6 +7,7 @@
 
 ### imports
 import csv
+import statistics as *
 import logging
 import logging.handlers
 
@@ -69,7 +70,10 @@ with open('/home/pi/fishtank/fishtemp.log') as csvfile:
     print(statuss)
     high = max(temps_f)
     low = min(temps_f)
-    print(low, high)
+    avg = mean(temps_f)
+    var = variance(temps_f)
+    std = stdev(temps_f)
+    print(low, high, avg, var, std)
     
 
 
