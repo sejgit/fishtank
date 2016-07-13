@@ -17,15 +17,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as md
 import matplotlib.cbook as cbook
 
-"""
-import schedule
-import time
-from gpiozero import LED
-import os
-import sys
-import glob
-import subprocess
-"""
+
 ### get logging going
 time_format = '%Y-%m-%d %H:%M:%S'
 # set up a specific logger with desired output level
@@ -47,46 +39,15 @@ logger.addHandler(fh)
 logger.info('***start program')
 
 
-# dtypes = np.dtype([('datestamp', 'M'), ('timestamp', 'M'), ('temp_c', 'f'), ('temp_f', 'f'), ('status', 'S')])
-
-with open('fishtemp.log', 'rb') as inp:
-    data_inp = list(filter((lambda x: x.startswith(b'***',27,30) != True), inp))
-    # message_inp = list(filter((lambda x: x.startswith('***',25,28)), inp))
-
-print(data_inp)
-
-pdinp = pd.read_csv('fishtemp.log')
+pdinp = pd.read_csv('fishtemp.log', header=None, names=['date', ' )
 print(pdinp)
 
 
+
+
+
+
 """
-
-z with open('data.example') as csvfile:
-    readCSV = csv.reader(csvfile, delimiter=" ")
-    dates = []
-    times = []
-    dateobject = []
-    temps_c = []
-    temps_f = []
-    statuss = []
-    dates0 = []
-    times0 = []
-    msgs0 = []
-    for row in readCSV:
-        if row[3] == 'celcius':
-            dates.append(row[0])
-            times.append(row[1])
-            dateobject.append(datetime.datetime.strptime((row[0]+" "+row[1]), '%tY-%m-%d %H:%M:%S'))
-            temps_c.append(float(row[4]))
-            temps_f.append(float(row[7]))
-            statuss.append(row[9])
-        else:
-            dates0.append(row[0])
-            times0.append(row[1])
-            msgs0.append(row[3])
-
-
-
 print(times)
 print(temps_c)
 print(temps_f)
