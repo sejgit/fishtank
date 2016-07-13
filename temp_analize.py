@@ -6,18 +6,19 @@
 # maybe: graph temps & overlay,
 
 ### imports
+import datetime as dt
 import csv
 import statistics
 import logging
 import logging.handlers
 import numpy as np
 import matplotlib.pyplot as plt
-
+import matplotlib.dates as md
+import matplotlib.cbook as cbook
 
 """
 import schedule
 import time
-import datetime
 from gpiozero import LED
 import os
 import sys
@@ -25,7 +26,7 @@ import glob
 import subprocess
 """
 ### get logging going
-
+time_format = '%Y-%m-%d %H:%M:%S'
 # set up a specific logger with desired output level
 LOG_FILENAME = 'temp_analize.log'
 logger = logging.getLogger('FishTankTempLogger')
@@ -36,7 +37,7 @@ fh = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=20000, backupCo
 fh.setLevel(logging.DEBUG)
 
 # create formatter and add it to the handlers
-formatter = logging.Formatter(fmt='%(asctime)s %(levelname)s %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+formatter = logging.Formatter(fmt='%(asctime)s %(levelname)s %(message)s', datefmt=time_format)
 fh.setFormatter(formatter)
 
 # add the handlers to the logger
@@ -44,11 +45,24 @@ logger.addHandler(fh)
 
 logger.info('***start program')
 
-#with open('/home/pi/fishtank/fishtemp.log') as csvfile:
-with open('data.example') as csvfile:
+
+# dtypes = np.dtype([('datestamp', 'M'), ('timestamp', 'M'), ('temp_c', 'f'), ('temp_f', 'f'), ('status', 'S')])
+
+with open('fishtemp.log') as inp:
+    data_inp = list(filter((lambda x: x.startswith('***',25,28) != True), inp))
+    # message_inp = list(filter((lambda x: x.startswith('***',25,28)), inp))
+
+inpx = np.loadtxt(data_inp, converters = {0: np.datetime64, 1: lambda s: float(s or 0)}, usecols = (0, 1), delimiter=' ')
+
+
+
+"""
+
+z with open('data.example') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=" ")
     dates = []
     times = []
+    dateobject = []
     temps_c = []
     temps_f = []
     statuss = []
@@ -59,6 +73,7 @@ with open('data.example') as csvfile:
         if row[3] == 'celcius':
             dates.append(row[0])
             times.append(row[1])
+            dateobject.append(datetime.datetime.strptime((row[0]+" "+row[1]), '%tY-%m-%d %H:%M:%S'))
             temps_c.append(float(row[4]))
             temps_f.append(float(row[7]))
             statuss.append(row[9])
@@ -67,29 +82,40 @@ with open('data.example') as csvfile:
             times0.append(row[1])
             msgs0.append(row[3])
 
-#    print(dates)
-#    print(times)
-#    print(temps_c)
-#    print(temps_f)
-#    print(statuss)
-    high = max(temps_f)
-    low = min(temps_f)
-    avg = statistics.mean(temps_f)
-    var = statistics.variance(temps_f)
-    std = statistics.stdev(temps_f)
-    print(low, high, avg, var, std)
+
+
+print(times)
+print(temps_c)
+print(temps_f)
+print(statuss)
+high = max(temps_f)
+low = min(temps_f)
+avg = statistics.mean(temps_f)
+var = statistics.variance(temps_f)
+std = statistics.stdev(temps_f)
+print(low, high, avg, var, std)
 
     t = np.arange(len(temps_f))
     h = np.ones((len(temps_f)), dtype=int) * 76
     l = np.ones((len(temps_f)), dtype=int) * 79
+
+    fig, ax = plt.subplots()
     plt.title('Fish Tank Temperature')
     plt.grid(True)
     plt.ylabel('temp F')
-#    plt.axis([1, len(temps_f), 75, 80])
     plt.ylim(75, 80)
-    plt.plot(t, temps_f, 'b-', t, l, 'r-', t, h,'r-')
-#    plt.annotate('
+#    plt.plot(t, temps_f, 'b-', t, l, 'r-', t, h,'r-')
+
+    ax.plot(dateobject, temps_f, 'b-')
+    ax.xaxis.set_major_locator(years)
+    ax.xaxis.set_major_formatter(yearsFmt)
+    ax.xaxis.set_minor_locator(days)
+
+    datemin = datetime.date(dateobject.date.min().year, 1, 1)
+    datemax = datetime.date(dateobject.date.max().year +1, 1, 1)
+    ax.set.xlim(datemin, datemax)
+
     plt.show()
 
-
+"""
 

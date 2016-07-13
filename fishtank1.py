@@ -51,7 +51,7 @@ tfh = logging.handlers.RotatingFileHandler(TEMP_LOG_FILENAME, maxBytes=0, backup
 tfh.setLevel(logging.DEBUG)
 
 # create formatter and add it to the handlers
-tempformatter = logging.Formatter(fmt='%(asctime)s %(levelname)s %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+tempformatter = logging.Formatter(fmt='%(asctime)s, %(levelname)s, %(message)s', datefmt='%Y-%m-%dT%H:%M:%S')
 tfh.setFormatter(tempformatter)
 
 # add the handlers to the logger
@@ -128,7 +128,7 @@ def relay1_off():
 # writing of temps
 def templog():
     deg_c, deg_f, status = read_temp()
-    templogger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status))
+    templogger.info('celcius, {0:.2f},  fahrenheit, {1:.2f},  {2}'.format(deg_c, deg_f, status))
     return
 
 def dailylog():
