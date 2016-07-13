@@ -134,7 +134,7 @@ def templog():
 def dailylog():
     deg_c, deg_f, status = read_temp()
     logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status))
-    templogger.info('celcius {0:.2f},  fahrenheit, {1:.2f},  {2}'.format(deg_c, deg_f, status))
+    templogger.info('celcius, {0:.2f},  fahrenheit, {1:.2f},  {2}'.format(deg_c, deg_f, status))
     return
 
 # other defined functions
