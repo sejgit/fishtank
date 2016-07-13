@@ -11,6 +11,7 @@ import csv
 import statistics
 import logging
 import logging.handlers
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
@@ -48,12 +49,14 @@ logger.info('***start program')
 
 # dtypes = np.dtype([('datestamp', 'M'), ('timestamp', 'M'), ('temp_c', 'f'), ('temp_f', 'f'), ('status', 'S')])
 
-with open('fishtemp.log') as inp:
-    data_inp = list(filter((lambda x: x.startswith('***',25,28) != True), inp))
+with open('fishtemp.log', 'rb') as inp:
+    data_inp = list(filter((lambda x: x.startswith(b'***',27,30) != True), inp))
     # message_inp = list(filter((lambda x: x.startswith('***',25,28)), inp))
 
-inpx = np.loadtxt(data_inp, converters = {0: np.datetime64, 1: lambda s: float(s or 0)}, usecols = (0, 1), delimiter=' ')
+print(data_inp)
 
+pdinp = pd.read_csv('fishtemp.log')
+print(pdinp)
 
 
 """
