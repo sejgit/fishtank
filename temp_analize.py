@@ -41,16 +41,22 @@ logger.info('***start program')
 
 
 ### pull in log fishtemp.log file into pandas
-pdinp = pd.read_csv('fishtemp.log', header=None, names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'], index_col=0, parse_dates = True)
+pdinp = pd.read_csv('fishtemp.log', header=None, names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'], index_col=0, parse_dates = True, skipinitialspace=True)
+
 print(pdinp)
 print(pdinp.index)
 
+pdinp2 = pdinp.copy()
+# pdinp2 = pdinp2[pdinp2['status'].isin(['ok', 'hi', 'lo'])]
+pdinp2 = pdinp2['status'].isin(['ok', 'hi', 'lo'])
 
+print(pdinp2)
 
-pdinp.plot()
+"""
+pdinp.plot(kind='line', x='temp_C', y='temp_F')
 fig = plt.gcf()
 fig.savefig('plot.png')
 plt.show()
-
+"""
 
 
