@@ -35,51 +35,20 @@ fh.setFormatter(formatter)
 
 # add the handlers to the logger
 logger.addHandler(fh)
+###
+
 
 logger.info('***start program')
 
 
-pdinp = pd.read_csv('fishtemp.log', header=None, names=['date', ' )
+### pull in log fishtemp.log file into panda
+pdinp = pd.read_csv('fishtemp.log', header=None, names=['date', 'type', 'status', 'temp_C', 'temp_F'], index_col=0, parse_dates = True)
 print(pdinp)
+print(pdinp.index)
+pdinp = pd.DataFrame(pdinp)
+pdinp.plot(pdinp)
+plt.savefig('test.png')
 
 
 
-
-
-
-"""
-print(times)
-print(temps_c)
-print(temps_f)
-print(statuss)
-high = max(temps_f)
-low = min(temps_f)
-avg = statistics.mean(temps_f)
-var = statistics.variance(temps_f)
-std = statistics.stdev(temps_f)
-print(low, high, avg, var, std)
-
-    t = np.arange(len(temps_f))
-    h = np.ones((len(temps_f)), dtype=int) * 76
-    l = np.ones((len(temps_f)), dtype=int) * 79
-
-    fig, ax = plt.subplots()
-    plt.title('Fish Tank Temperature')
-    plt.grid(True)
-    plt.ylabel('temp F')
-    plt.ylim(75, 80)
-#    plt.plot(t, temps_f, 'b-', t, l, 'r-', t, h,'r-')
-
-    ax.plot(dateobject, temps_f, 'b-')
-    ax.xaxis.set_major_locator(years)
-    ax.xaxis.set_major_formatter(yearsFmt)
-    ax.xaxis.set_minor_locator(days)
-
-    datemin = datetime.date(dateobject.date.min().year, 1, 1)
-    datemax = datetime.date(dateobject.date.max().year +1, 1, 1)
-    ax.set.xlim(datemin, datemax)
-
-    plt.show()
-
-"""
 
