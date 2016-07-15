@@ -53,7 +53,7 @@ pdinp2 = pdinp2['status'].isin(['ok', 'hi', 'lo'])
 print(pdinp2)
 
 
-pdinp.plot()
+pdinp.plot(ylim=[15,80])
 fig = plt.gcf()
 fig.savefig('plot.png')
 plt.show()
