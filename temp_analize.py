@@ -52,11 +52,11 @@ pdinp2 = pdinp2['status'].isin(['ok', 'hi', 'lo'])
 
 print(pdinp2)
 
-"""
-pdinp.plot(kind='line', x='temp_C', y='temp_F')
+
+pdinp.plot()
 fig = plt.gcf()
 fig.savefig('plot.png')
 plt.show()
-"""
+
 
 
