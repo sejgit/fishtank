@@ -54,8 +54,12 @@ pdinp = pdinp.dropna()
 # print(pdinp)
 
 
-pdinp.plot(title='FishTank Temperature', kind='line', grid=True, y='temp_F', ylim=[75,80])
+
 fig = plt.gcf()
+#fig = figure(figsize(5,5))
+ax = fig.add_subplot(111)
+pdinp.plot(title='FishTank Temperature', kind='line', grid=True, y='temp_F', ylim=[75,80])
+ax.xaxis.set_major_formatter(md.DateFormatter('%Y-%m-%d'))
 fig.savefig('plot.png')
 #plt.show()
 
