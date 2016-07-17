@@ -188,7 +188,7 @@ def scheduling():
     logger.info('end light off='+ end_str)
     schedule.every(15).minutes.do(templog)    # log temp to templogger
     schedule.every().day.do(dailylog)    # daily log temp to logger & temp logger
-    schedule.every(30).munutes.do(tempanalysis) # analyse and graph temperature data
+    schedule.every(30).minutes.do(tempanalysis) # analyse and graph temperature data
     return
 
 ###
