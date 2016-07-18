@@ -233,6 +233,7 @@ def main():
         except:
             logger.info('program end:', sys.exc_info()[0])
             exit()
+    return
 
 
 if __name__== '__main__':
