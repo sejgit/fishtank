@@ -132,12 +132,12 @@ def read_temp():
 # relay def
 def relay1_on():
     relay1.off()
-    logger.debug('relay1_on')
+    logger.info('relay1_on')
     return
 
 def relay1_off():
     relay1.on()
-    logger.debug('relay1_off')
+    logger.info('relay1_off')
     return
 
 
@@ -159,13 +159,20 @@ def tempanalysis():
         ### pull in log fishtemp.log file into pandas
         logger.info('start tempanalysis')
         pdinp = pd.read_csv('fishtemp.log', header=None, names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'], index_col=0, parse_dates = True, skipinitialspace=True)
+        logger.debug('pd.read_csv done')
         pdinp = pdinp.dropna()
+        logger.debug('dropna done')
         fig = plt.gcf()
+        logger.debug('fig done')
         ax = fig.add_subplot(111)
+        logger.debug('subplot done')
         pdinp.plot(title='FishTank Temperature', kind='line', grid=True, y='temp_F', ylim=[75,80])
+        logger.debug('plot done')
         ax.xaxis.set_major_formatter(md.DateFormatter('%Y-%m-%d'))
+        logger.debug('axis format done')
         fig.savefig('plot.png')
         #plt.show()
+        logger.debug('plot done')
         logger.info('end tempanalysis')
         return
 
@@ -190,7 +197,7 @@ def scheduling():
     logger.info('end light off='+ end_str)
     schedule.every(15).minutes.do(templog)    # log temp to templogger
     schedule.every().day.do(dailylog)    # daily log temp to logger & temp logger
-    schedule.every(30).minutes.do(tempanalysis) # analyse and graph temperature data
+    schedule.every(10).minutes.do(tempanalysis) # analyse and graph temperature data
     return
 
 ###
