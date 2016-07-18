@@ -195,7 +195,7 @@ def scheduling():
     schedule.every().day.at(end_str).do(relay1_off)   # light/bubler OFF at night
     logger.info('start light on='+ start_str)
     logger.info('end light off='+ end_str)
-    schedule.every(15).minutes.do(templog)    # log temp to templogger
+    schedule.every(10).minutes.do(templog)    # log temp to templogger
     schedule.every().day.do(dailylog)    # daily log temp to logger & temp logger
     schedule.every(30).minutes.do(tempanalysis) # analyse and graph temperature data
     return
