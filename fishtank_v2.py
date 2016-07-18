@@ -158,7 +158,7 @@ def dailylog():
 def tempanalysis():
         ### pull in log fishtemp.log file into pandas
         logger.info('start tempanalysis')
-        pdinp = pd.read_csv('fishtemp.log', header=None, names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'], index_col=0, parse_dates = True, skipinitialspace=True)
+        pdinp = pd.read_csv('/home/pi/fishtank/fishtemp.log', header=None, names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'], index_col=0, parse_dates = True, skipinitialspace=True)
         logger.debug('pd.read_csv done')
         pdinp = pdinp.dropna()
         logger.debug('dropna done')
