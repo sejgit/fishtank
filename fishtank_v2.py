@@ -157,6 +157,7 @@ def dailylog():
 # temp data analysis
 def tempanalysis():
         ### pull in log fishtemp.log file into pandas
+        logger.info('start tempanalysis')
         pdinp = pd.read_csv('fishtemp.log', header=None, names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'], index_col=0, parse_dates = True, skipinitialspace=True)
         pdinp = pdinp.dropna()
         fig = plt.gcf()
@@ -165,6 +166,7 @@ def tempanalysis():
         ax.xaxis.set_major_formatter(md.DateFormatter('%Y-%m-%d'))
         fig.savefig('plot.png')
         #plt.show()
+        logger.info('end tempanalysis')
         return
 
 # heartbeat function
