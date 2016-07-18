@@ -12,7 +12,7 @@ function error_exit
 # Using error_exit
 
 ls ~/fishwww
-if [ "$?" = "0" ]
+if [ -e = "~/fishwww/plot.png" ]
     then
         error_exit "fishwww all ok"
     else
