@@ -156,25 +156,30 @@ def dailylog():
 
 # temp data analysis
 def tempanalysis():
+    while True:
+        try:
         ### pull in log fishtemp.log file into pandas
-        logger.info('start tempanalysis')
-        pdinp = pd.read_csv('/home/pi/fishtank/fishtemp.log', header=None, names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'], index_col=0, parse_dates = True, skipinitialspace=True)
-        logger.debug('pd.read_csv done')
-        pdinp = pdinp.dropna()
-        logger.debug('dropna done')
-        fig = plt.gcf()
-        logger.debug('fig done')
-        ax = fig.add_subplot(111)
-        logger.debug('subplot done')
-        pdinp.plot(title='FishTank Temperature', kind='line', grid=True, y='temp_F', ylim=[75,80])
-        logger.debug('plot done')
-        ax.xaxis.set_major_formatter(md.DateFormatter('%Y-%m-%d'))
-        logger.debug('axis format done')
-        fig.savefig('plot.png')
-        #plt.show()
-        logger.debug('plot done')
-        logger.info('end tempanalysis')
-        return
+                logger.info('start tempanalysis')
+                pdinp = pd.read_csv('/home/pi/fishtank/fishtemp.log', header=None, names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'], index_col=0, parse_dates = True, skipinitialspace=True)
+                logger.debug('pd.read_csv done')
+                pdinp = pdinp.dropna()
+                logger.debug('dropna done')
+                fig = plt.gcf()
+                logger.debug('fig done')
+                ax = fig.add_subplot(111)
+                logger.debug('subplot done')
+                pdinp.plot(title='FishTank Temperature', kind='line', grid=True, y='temp_F', ylim=[75,80])
+                logger.debug('plot done')
+                ax.xaxis.set_major_formatter(md.DateFormatter('%Y-%m-%d'))
+                logger.debug('axis format done')
+                fig.savefig('plot.png')
+                #plt.show()
+                logger.debug('plot done')
+                logger.info('end tempanalysis')
+                break
+        except:
+                logger.error(str(sys.exec_info()[0]))
+    return
 
 # heartbeat function
 def heartbeat(ast):
