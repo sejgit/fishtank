@@ -71,7 +71,7 @@ logger = logging.getLogger('FishTankLogger')
 logger.setLevel(logging.DEBUG)
 
 # add the rotating log message handler
-fh = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=20000, backupCount=5)
+fh = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=100000, backupCount=5)
 fh.setLevel(logging.DEBUG)
 
 # create formatter and add it to the handlers
@@ -221,7 +221,6 @@ def tempanalysis():
                                     index_col=0, parse_dates = True, skipinitialspace=True)
                 logger.debug('pd.read_csv done')
                 pdinp = pdinp.dropna()
-                logger.debug('dropna done')
                 pdinp.plot(title='FishTank Temperature', kind='line', grid=True, y='temp_F', ylim=[75,80])
                 logger.debug('plot done')
                 fig = plt.gcf()
@@ -232,7 +231,6 @@ def tempanalysis():
                 logger.debug('axis format done')
                 fig.savefig('plot.png')
                 #plt.show()
-                logger.debug('plot done')
                 logger.info('end tempanalysis')
                 break
             except:
