@@ -8,7 +8,7 @@
 # 2016 07 07 add temperature logging
 # 2016 07 17 incorporate temp analysis & plot & external web
 # 2016 07 18 change y axis & command line parse
-# 2016 07 18 add -test mode and -dir args
+# 2016 07 18 add args for -test -dir -plotonly
 
 # todos: log errors, prowl errors, max mins and/or trends
 # maybe: button to turn light on at will, auto feeder
@@ -176,8 +176,8 @@ def read_temp():
                 temp_c = float(temp_string) / 1000.0
                 temp_f = temp_c * 9.0 / 5.0 + 32.0
         else:
-                temp_c = temp_c_test
-                temp_f = temp_c * 9.0 / 5.0 + 32.0
+            temp_c = temp_c_test
+            temp_f = temp_c * 9.0 / 5.0 + 32.0
 
         if temp_f > temp_f_hi:
             status = 'hi'
@@ -219,7 +219,7 @@ def dailylog():
 def tempanalysis():
         while True:
             try:
-        ### pull in log fishtemp.log file into pandas
+                ### pull in log fishtemp.log file into pandas
                 logger.info('start tempanalysis')
                 pdinp = pd.read_csv(TEMP_LOG_FILENAME, header=None,
                                     names=['datestamp', 'type', 'status',
