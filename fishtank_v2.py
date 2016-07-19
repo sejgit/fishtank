@@ -9,6 +9,7 @@
 # 2016 07 17 incorporate temp analysis & plot & external web
 # 2016 07 18 change y axis & command line parse
 # 2016 07 18 add args for -test -dir -plotonly
+# 2016 07 19 prowl warnings & status
 
 # todos: log errors, prowl errors, max mins and/or trends
 # maybe: button to turn light on at will, auto feeder
@@ -32,6 +33,7 @@ import os
 import sys
 import glob
 import subprocess
+import paul
 
 # parsing
 import argparse
@@ -145,11 +147,49 @@ temp_c_test = 26
 
 # prowl vars
 daily = dt.time(12, 00)
+try:
+    p = paul.Paul()
+
+    apikey = ""
+    with open(os.path.join(os.path.expanduser("~"), ".paul"), "r") as f:
+            apikey = f.read()
+            apikey = apikey.strip()
+
+except FileNotFoundError:
+    print("File not found:", os.path.join(os.path.expanduser("~"), ".paul"))
+
+except IOError:
+    print("Could not read file:", os.path.join(os.path.expanduser("~"), ".pail"))
 
 
 ###
 ### defined functions
 ###
+
+# paul prowl push def
+def prowl(event, description, pri=None):
+        try:
+            p = paul.Paul()
+
+            """
+            p.push(apikey,
+                   args.name,
+                   args.event,
+                   args.description,
+                   url=args.url,
+                   priority=args.priority)
+            """
+
+            p.push(apikey,
+                   'Fishtank',
+                   event,
+                   description,
+                   url=None, 
+                   priority=pri)
+
+        except IOError:
+            logger.error('prowl error')
+        return
 
 # temp prob def
 def read_temp_raw():
@@ -318,6 +358,7 @@ def main():
 
 if __name__== '__main__':
     if args.plotonly:
+        prowl('test', 'plotonly', 0)
         tempanalysis()
     else:
         main()
