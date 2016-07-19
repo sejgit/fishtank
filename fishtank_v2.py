@@ -7,19 +7,25 @@
 # 2016 07 06 changed logging to complex form
 # 2016 07 07 add temperature logging
 # 2016 07 17 incorporate temp analysis & plot & external web
+# 2016 07 18 change y axis & command line parse
+# 2016 07 18 add -test mode and -dir args
+
 # todos: log errors, prowl errors, max mins and/or trends
 # maybe: button to turn light on at will, auto feeder
+
+###
+### imports and parse args
+###
 
 ### imports
 import datetime as dt
 import pandas as pd
-import numpy as np
+# import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
 # import matplotlib.cbook as cbook
 import schedule
 import time
-from gpiozero import LED
 import logging
 import logging.handlers
 import os
@@ -27,12 +33,40 @@ import sys
 import glob
 import subprocess
 
+# parsing
+import argparse
+
+parser = argparse.ArgumentParser(
+        description='Fishtank control & data aquisition')
+parser.add_argument('-t', '--test', action='store_true',
+                    help='turn on testing environment')
+parser.add_argument('-d', '--dir',
+                    help='home directory')
+args = parser.parse_args()
+
+if args.dir:
+        dir = os.path.join(args.dir, '')
+else:
+        dir = '/home/pi/fishtank/'
+
+if os.path.isdir(dir):
+        print("\n" + dir + "   ***using directory***\n")
+else:
+        print("\n" + dir + "   ***not a dir***\n")
+
+
+# hardware imports
+if not args.test:
+        from gpiozero import LED
+
+
 ###
 ### get logging going
 ###
 
 # set up a specific logger with desired output level
-LOG_FILENAME = '/home/pi/fishtank/fishtank.log'
+LOG_FILENAME = dir + 'fishtank.log'
+
 logger = logging.getLogger('FishTankLogger')
 logger.setLevel(logging.DEBUG)
 
@@ -53,7 +87,8 @@ logger.addHandler(fh)
 ###
 
 # set up temp logger with desired output level
-TEMP_LOG_FILENAME = '/home/pi/fishtank/fishtemp.log'
+TEMP_LOG_FILENAME = dir + 'fishtemp.log'
+
 templogger = logging.getLogger('FishTempLogger')
 templogger.setLevel(logging.DEBUG)
 
@@ -70,29 +105,38 @@ templogger.addHandler(tfh)
 
 
 logger.info('***start program')
+logger.info('using directory  ' + dir)
+logger.info('testing = ' + str(args.test))
+
 templogger.info('***start program')
+templogger.info('testing = ' + str(args.test))
+
 
 ###
 ### variables
 ###
 
 # relay variables
-relay1 = LED(17)
-relay2 = LED(18)
+if not args.test:
+    relay1 = LED(17)
+    relay2 = LED(18)
 start = dt.time(5, 30)
 start_str = str(start)[:5]
 end = dt.time(20, 45)
 end_str = str(end)[:5]
 
 # temp prob set-up and vars
-os.system('modprobe w1-gpio')
-os.system('modprobe w1-therm')
+if not args.test:
+        os.system('modprobe w1-gpio')
+        os.system('modprobe w1-therm')
 
-base_dir = '/sys/bus/w1/devices/'
-device_folder = glob.glob(base_dir + '28*')[0]
-device_file = device_folder + '/w1_slave'
+        base_dir = '/sys/bus/w1/devices/'
+        device_folder = glob.glob(base_dir + '28*')[0]
+        device_file = device_folder + '/w1_slave'
+
+
 temp_f_hi = 80
-temp_f_lo = 75
+temp_f_lo = 77
 
 # prowl vars
 daily = dt.time(12, 00)
@@ -104,22 +148,32 @@ daily = dt.time(12, 00)
 
 # temp prob def
 def read_temp_raw():
-	catdata = subprocess.Popen(['cat',device_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-	out,err = catdata.communicate()
-	out_decode = out.decode('utf-8')
-	lines = out_decode.split('\n')
-	return lines
+        if not args.test:
+                catdata = subprocess.Popen(['cat',device_file],
+                                           stdout=subprocess.PIPE,
+                                           stderr=subprocess.PIPE)
+                out,err = catdata.communicate()
+                out_decode = out.decode('utf-8')
+                lines = out_decode.split('\n')
+        else:
+                lines = ''
+        return lines
 
 def read_temp():
-    lines = read_temp_raw()
-    while lines[0].strip()[-3:] != 'YES':
-        time.sleep(0.2)
-        lines = read_temp_raw()
-    equals_pos = lines[1].find('t=')
-    if equals_pos != -1:
-        temp_string = lines[1][equals_pos+2:]
-        temp_c = float(temp_string) / 1000.0
-        temp_f = temp_c * 9.0 / 5.0 + 32.0
+        if not args.test:
+            lines = read_temp_raw()
+            while lines[0].strip()[-3:] != 'YES':
+                time.sleep(0.2)
+                lines = read_temp_raw()
+            equals_pos = lines[1].find('t=')
+            if equals_pos != -1:
+                temp_string = lines[1][equals_pos+2:]
+                temp_c = float(temp_string) / 1000.0
+                temp_f = temp_c * 9.0 / 5.0 + 32.0
+        else:
+                temp_c = 25
+                temp_f = temp_c * 9.0 / 5.0 + 32.0
+
         if temp_f > temp_f_hi:
             status = 'hi'
         elif temp_f < temp_f_lo:
@@ -131,12 +185,14 @@ def read_temp():
 
 # relay def
 def relay1_on():
-    relay1.off()
+    if not args.test:
+        relay1.off()
     logger.info('relay1_on')
     return
 
 def relay1_off():
-    relay1.on()
+    if not args.test:
+        relay1.on()
     logger.info('relay1_off')
     return
 
@@ -156,11 +212,13 @@ def dailylog():
 
 # temp data analysis
 def tempanalysis():
-    while True:
-        try:
+        while True:
+            try:
         ### pull in log fishtemp.log file into pandas
                 logger.info('start tempanalysis')
-                pdinp = pd.read_csv('/home/pi/fishtank/fishtemp.log', header=None, names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'], index_col=0, parse_dates = True, skipinitialspace=True)
+                pdinp = pd.read_csv(TEMP_LOG_FILENAME, header=None,
+                                    names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'],
+                                    index_col=0, parse_dates = True, skipinitialspace=True)
                 logger.debug('pd.read_csv done')
                 pdinp = pdinp.dropna()
                 logger.debug('dropna done')
@@ -177,9 +235,9 @@ def tempanalysis():
                 logger.debug('plot done')
                 logger.info('end tempanalysis')
                 break
-        except:
+            except:
                 logger.error(str(sys.exec_info()[0]))
-    return
+        return
 
 # heartbeat function
 def heartbeat(ast):
@@ -235,9 +293,10 @@ def main():
             deg_c, deg_f, status = read_temp()
 
             # overlay text onto RPi camera
-            with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
-                f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+hb))
-            f.closed
+            if not args.test:
+                with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
+                    f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+hb))
+                f.closed
 
         except KeyboardInterrupt:
             print('\n\nKeyboard exception. Exiting.\n')
