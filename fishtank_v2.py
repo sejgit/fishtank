@@ -221,10 +221,13 @@ def read_temp():
 
         if temp_f > temp_f_hi:
             status = 'hi'
+            prowl('temperature warning', (' ***high ' + str(temp_f) + '***'), 0)
         elif temp_f < temp_f_lo:
             status = 'lo'
+            prowl('temperature warning', (' ***low ' + str(temp_f) + '***'), 0)
         else:
             status = 'ok'
+            prowl('temperature info', (' ***ok ' + str(temp_f) + '***'), 0)
         return temp_c, temp_f, status
 
 
@@ -358,7 +361,7 @@ def main():
 
 if __name__== '__main__':
     if args.plotonly:
-        prowl('test', 'plotonly', 0)
+        # prowl('test', 'plotonly', 0)
         tempanalysis()
     else:
         main()
