@@ -151,7 +151,7 @@ try:
     p = paul.Paul()
 
     apikey1 = ""
-    with open(os.path.join(dir, ".paul"), "r") as f:
+    with open(os.path.join(dir, ".paul1"), "r") as f:
             apikey1 = f.read()
             apikey1 = apikey1.strip()
 
