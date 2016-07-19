@@ -150,16 +150,19 @@ daily = dt.time(12, 00)
 try:
     p = paul.Paul()
 
-    apikey = ""
-    with open(os.path.join(os.path.expanduser("~"), ".paul"), "r") as f:
-            apikey = f.read()
-            apikey = apikey.strip()
+    apikey1 = ""
+    with open(os.path.join(dir, ".paul"), "r") as f:
+            apikey1 = f.read()
+            apikey1 = apikey1.strip()
 
-except FileNotFoundError:
-    print("File not found:", os.path.join(os.path.expanduser("~"), ".paul"))
+    apikey2 = ""
+    with open(os.path.join(dir, ".paul2"), "r") as f:
+            apikey2 = f.read()
+            apikey2 = apikey2.strip()
 
 except IOError:
-    print("Could not read file:", os.path.join(os.path.expanduser("~"), ".pail"))
+    logger.error("Could not read prowl api file")
+
 
 
 ###
@@ -180,12 +183,23 @@ def prowl(event, description, pri=None):
                    priority=args.priority)
             """
 
-            p.push(apikey,
+            # prowl push to sej
+            p.push(apikey1,
                    'Fishtank',
                    event,
                    description,
-                   url=None, 
+                   url=None,
                    priority=pri)
+
+            # prowl push to tej
+            """
+            p.push(apikey2,
+                   'Fishtank',
+                   event,
+                   description,
+                   url=None,
+                   priority=pri)
+            """
 
         except IOError:
             logger.error('prowl error')

@@ -9,8 +9,8 @@ app="Raspi Fishtank"
 priority=$1
 eventname=$2
 description=$3
-apikey1=478f1343324309aeaa764704ebc8b2988dc7ec3b # sej key
-apikey2=779712cfa1b032186987d45d481914e42a50c50e # tej key
+apikey1=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # key1
+apikey2=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx # key2
 if [ $# -ne 3 ]; then
 	echo "prowl"
 	echo "Usage: ./prowl.sh priority(-2 to 2) appname description"
