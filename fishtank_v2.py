@@ -217,11 +217,14 @@ def tempanalysis():
         ### pull in log fishtemp.log file into pandas
                 logger.info('start tempanalysis')
                 pdinp = pd.read_csv(TEMP_LOG_FILENAME, header=None,
-                                    names=['datestamp', 'type', 'status', 'temp_C', 'temp_F'],
-                                    index_col=0, parse_dates = True, skipinitialspace=True)
+                                    names=['datestamp', 'type', 'status',
+                                           'temp_C', 'temp_F'],
+                                    index_col=0, parse_dates = True,
+                                    skipinitialspace=True)
                 logger.debug('pd.read_csv done')
                 pdinp = pdinp.dropna()
-                pdinp.plot(title='FishTank Temperature', kind='line', grid=True, y='temp_F', ylim=[75,80])
+                pdinp.plot(title='FishTank Temperature', kind='line',
+                           grid=True, y='temp_F', ylim=[temp_f_lo, temp_f_hi])
                 logger.debug('plot done')
                 fig = plt.gcf()
                 logger.debug('fig done')
