@@ -70,11 +70,11 @@ if not args.test:
 LOG_FILENAME = dir + 'fishtank.log'
 
 logger = logging.getLogger('FishTankLogger')
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 # add the rotating log message handler
 fh = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=100000, backupCount=5)
-fh.setLevel(logging.DEBUG)
+fh.setLevel(logging.INFO)
 
 # create formatter and add it to the handlers
 formatter = logging.Formatter(fmt='%(asctime)s %(levelname)s %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
