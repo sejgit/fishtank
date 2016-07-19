@@ -40,6 +40,8 @@ parser = argparse.ArgumentParser(
         description='Fishtank control & data aquisition')
 parser.add_argument('-t', '--test', action='store_true',
                     help='turn on testing environment')
+parser.add_argument('-p', '--plotonly', action='store_true',
+                    help='plot and exit')
 parser.add_argument('-d', '--dir',
                     help='home directory')
 args = parser.parse_args()
@@ -107,9 +109,11 @@ templogger.addHandler(tfh)
 logger.info('***start program')
 logger.info('using directory  ' + dir)
 logger.info('testing = ' + str(args.test))
-
-templogger.info('***start program')
-templogger.info('testing = ' + str(args.test))
+if args.plotonly:
+        logger.info('***plotonly***')
+else:
+        templogger.info('***start program')
+        templogger.info('testing = ' + str(args.test))
 
 
 ###
@@ -137,6 +141,7 @@ if not args.test:
 
 temp_f_hi = 80
 temp_f_lo = 77
+temp_c_test = 26
 
 # prowl vars
 daily = dt.time(12, 00)
@@ -171,7 +176,7 @@ def read_temp():
                 temp_c = float(temp_string) / 1000.0
                 temp_f = temp_c * 9.0 / 5.0 + 32.0
         else:
-                temp_c = 25
+                temp_c = temp_c_test
                 temp_f = temp_c * 9.0 / 5.0 + 32.0
 
         if temp_f > temp_f_hi:
@@ -233,7 +238,8 @@ def tempanalysis():
                 ax.xaxis.set_major_formatter(md.DateFormatter('%Y-%m-%d'))
                 logger.debug('axis format done')
                 fig.savefig('plot.png')
-                #plt.show()
+                if args.plotonly:
+                    plt.show()
                 logger.info('end tempanalysis')
                 break
             except:
@@ -311,5 +317,9 @@ def main():
 
 
 if __name__== '__main__':
-    main()
+    if args.plotonly:
+        tempanalysis()
+    else:
+        main()
     exit()
+
