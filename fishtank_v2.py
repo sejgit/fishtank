@@ -349,7 +349,6 @@ def scheduling():
 
 def main():
     scheduling()
-    # timestamp
     timestamp = dt.datetime.now().time()
     logger.info('nowtime ='+ str(timestamp)[:5])
 
@@ -361,8 +360,9 @@ def main():
         logger.info('start relay1_off')
         relay1_off()
 
-    # log temp on first run
+    # log & push temp on first run
     dailylog()
+    pushtempstatus()
     hb = "*"
 
     while True:
