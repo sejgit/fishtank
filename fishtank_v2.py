@@ -24,6 +24,7 @@ import pandas as pd
 # import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
+# import matplotlib.ticker as ticker
 # import matplotlib.cbook as cbook
 import schedule
 import time
@@ -72,11 +73,15 @@ if not args.test:
 LOG_FILENAME = dir + 'fishtank.log'
 
 logger = logging.getLogger('FishTankLogger')
-logger.setLevel(logging.INFO)
 
 # add the rotating log message handler
 fh = logging.handlers.RotatingFileHandler(LOG_FILENAME, maxBytes=100000, backupCount=5)
-fh.setLevel(logging.INFO)
+if args.test:
+        logger.setLevel(logging.DEBUG)
+        fh.setLevel(logging.DEBUG)
+else:
+        logger.setLevel(logging.INFO)
+        fh.setLevel(logging.INFO)
 
 # create formatter and add it to the handlers
 formatter = logging.Formatter(fmt='%(asctime)s %(levelname)s %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -190,14 +195,12 @@ def prowl(event, description, pri=None):
                    priority=pri)
 
             # prowl push to tej
-            """
             p.push(apikey2,
                    'Fishtank',
                    event,
                    description,
                    url=None,
                    priority=pri)
-            """
 
         except IOError:
             logger.error('prowl error')
@@ -280,31 +283,34 @@ def tempanalysis():
         while True:
             try:
                 ### pull in log fishtemp.log file into pandas
-                logger.info('start tempanalysis')
+                logger.debug('tempanalysis start')
+                timestamp = dt.datetime.now()
                 pdinp = pd.read_csv(TEMP_LOG_FILENAME, header=None,
-                                    names=['datestamp', 'type', 'status',
-                                           'temp_C', 'temp_F'],
+                                    names=['datestamp','type',
+                                           'status', 'temp_C', 'temp_F'],
                                     index_col=0, parse_dates = True,
                                     skipinitialspace=True)
                 logger.debug('pd.read_csv done')
                 pdinp = pdinp.dropna()
-                pdinp.plot(title='FishTank Temperature', kind='line',
-                           grid=True, y='temp_F', ylim=[temp_f_lo, temp_f_hi])
+                pdinp.plot(title='FishTank Temperature as of: '
+                           +timestamp.strftime('%b-%d-%Y %H:%M'),
+                           kind='line',grid=True, y='temp_F',
+                           ylim=[temp_f_lo, temp_f_hi])
                 logger.debug('plot done')
                 fig = plt.gcf()
                 logger.debug('fig done')
                 ax = fig.add_subplot(111)
                 logger.debug('subplot done')
-                ax.xaxis.set_major_formatter(md.DateFormatter('%Y-%m-%d'))
+                ax.xaxis.set_major_formatter(md.DateFormatter('%b-%d'))
                 logger.debug('axis format done')
-                fig.savefig('plot.png')
+                fig.savefig(dir + 'plot.png')
                 if args.plotonly:
                     pass
                     plt.show()
-                logger.info('end tempanalysis')
+                logger.info('tempanalysis done')
                 break
             except:
-                logger.error(str(sys.exec_info()[0]))
+                logger.error('tempanalysis error')
         return
 
 # heartbeat function
@@ -344,11 +350,11 @@ def main():
 
     # start or stop light/bubbles on first run
     if start <= timestamp <= end:
-        relay1_on()
         logger.info('start relay1_on')
+        relay1_on()
     else:
-        relay1_off()
         logger.info('start relay1_off')
+        relay1_off()
 
     # log temp on first run
     dailylog()
