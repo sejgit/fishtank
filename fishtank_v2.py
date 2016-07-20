@@ -21,7 +21,7 @@
 ### imports
 import datetime as dt
 import pandas as pd
-import numpy as np
+# import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
 # import matplotlib.cbook as cbook
@@ -296,7 +296,8 @@ def tempanalysis():
                 logger.debug('axis format done')
                 fig.savefig('plot.png')
                 if args.plotonly:
-                    plt.show()
+                    pass
+                    # plt.show()
                 logger.info('end tempanalysis')
                 break
             except:
