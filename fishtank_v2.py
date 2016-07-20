@@ -10,8 +10,9 @@
 # 2016 07 18 change y axis & command line parse
 # 2016 07 18 add args for -test -dir -plotonly
 # 2016 07 19 prowl warnings & status
+# 2016 07 20 fix plots
 
-# todos: log errors, prowl errors, max mins and/or trends
+# todos: max mins and/or trends
 # maybe: button to turn light on at will, auto feeder
 
 ###
