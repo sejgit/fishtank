@@ -235,13 +235,13 @@ def read_temp():
 
         if temp_f > temp_f_hi:
             status = 'hi'
-            prowl('temperature warning', (' ***high ' + str(temp_f) + '***'), 0)
+            # prowl('temperature warning', (' ***high ' + str(temp_f) + '***'), 0)
         elif temp_f < temp_f_lo:
             status = 'lo'
-            prowl('temperature warning', (' ***low ' + str(temp_f) + '***'), 0)
+            # prowl('temperature warning', (' ***low ' + str(temp_f) + '***'), 0)
         else:
             status = 'ok'
-            prowl('temperature info', (' ***ok ' + str(temp_f) + '***'), 0)
+            # prowl('temperature info', (' ***ok ' + str(temp_f) + '***'), 0)
         return temp_c, temp_f, status
 
 
@@ -297,7 +297,7 @@ def tempanalysis():
                 fig.savefig('plot.png')
                 if args.plotonly:
                     pass
-                    # plt.show()
+                    plt.show()
                 logger.info('end tempanalysis')
                 break
             except:
