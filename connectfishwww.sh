@@ -17,7 +17,7 @@ if [ -e = "~/fishwww/plot.png" ]
         error_exit "fishwww all ok"
     else
         fusermount -u /home/pi/fishwww
-        cat ~/.ssh/auth | sshfs -o reconnect -o follow_symlinks -o allow_other pi@10.0.1.14:/var/www/html/ /home/pi/fishwww
+        cat ~/.ssh/auth | sshfs -o reconnect -o follow_symlinks -o allow_other -o password_stdin pi@10.0.1.14:/var/www/html/ /home/pi/fishwww
         error_exit "fishwww not connected. reconnecting"
 fi
 
