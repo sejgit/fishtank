@@ -292,16 +292,21 @@ def tempanalysis():
                                     skipinitialspace=True)
                 logger.debug('pd.read_csv done')
                 pdinp = pdinp.dropna()
-                pdinp.plot(title='FishTank Temperature as of: '
-                           +timestamp.strftime('%b-%d-%Y %H:%M'),
+                pdinp.plot(title='FishTank Temperature',
                            kind='line',grid=True, y='temp_F',
                            ylim=[temp_f_lo, temp_f_hi])
                 logger.debug('plot done')
                 fig = plt.gcf()
+                fig.suptitle('Fishtank Temperature',
+                             fontsize=20)
                 logger.debug('fig done')
                 ax = fig.add_subplot(111)
                 logger.debug('subplot done')
+                ax.set_title(timestamp.strftime('%b-%d-%Y %H:%M'),
+                             fontsize=14)
                 ax.xaxis.set_major_formatter(md.DateFormatter('%b-%d'))
+                ax.set_xlabel(timestamp.strftime('%Y'), fontsize=16)
+                ax.set_ylabel('temp_F', fontsize=16)
                 logger.debug('axis format done')
                 fig.savefig(dir + 'plot.png')
                 if args.plotonly:
