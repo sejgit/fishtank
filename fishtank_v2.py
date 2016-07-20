@@ -146,7 +146,6 @@ temp_f_lo = 77
 temp_c_test = 26
 
 # prowl vars
-daily = dt.time(12, 00)
 try:
     p = paul.Paul()
 
@@ -162,7 +161,6 @@ try:
 
 except IOError:
     logger.error("Could not read prowl api file")
-
 
 
 ###
@@ -235,15 +233,20 @@ def read_temp():
 
         if temp_f > temp_f_hi:
             status = 'hi'
-            # prowl('temperature warning', (' ***high ' + str(temp_f) + '***'), 0)
         elif temp_f < temp_f_lo:
             status = 'lo'
-            # prowl('temperature warning', (' ***low ' + str(temp_f) + '***'), 0)
         else:
             status = 'ok'
-            # prowl('temperature info', (' ***ok ' + str(temp_f) + '***'), 0)
         return temp_c, temp_f, status
 
+# push temp status to prowl
+def pushtempstatus():
+    if "status_old" not in pushtempstatus.__dict__: pushtempstatus.status_old = 'first run'
+    deg_c, deg_f, status = read_temp()
+    if status != pushtempstatus.status_old:
+        prowl('temperature ', (" *** " + status + " " + str(deg_f) + ' ***'), 0)
+        pushtempstatus.status_old = status
+    return
 
 # relay def
 def relay1_on():
@@ -326,6 +329,7 @@ def scheduling():
     schedule.every(10).minutes.do(templog)    # log temp to templogger
     schedule.every().day.do(dailylog)    # daily log temp to logger & temp logger
     schedule.every(10).minutes.do(tempanalysis) # analyse and graph temperature data
+    schedule.every(15).minutes.do(pushtempstatus) # push temperature status to prowl
     return
 
 ###
