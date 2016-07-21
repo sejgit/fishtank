@@ -11,6 +11,7 @@
 # 2016 07 18 add args for -test -dir -plotonly
 # 2016 07 19 prowl warnings & status
 # 2016 07 20 fix plots
+# 2016 07 21 clean-up .paul files to .ssh
 
 # todos: max mins and/or trends
 # maybe: button to turn light on at will, auto feeder
@@ -59,7 +60,7 @@ if os.path.isdir(dir):
         print("\n" + dir + "   ***using directory***\n")
 else:
         print("\n" + dir + "   ***not a dir***\n")
-
+userdir = os.path.expanduser("~")
 
 # hardware imports
 if not args.test:
@@ -156,12 +157,12 @@ try:
     p = paul.Paul()
 
     apikey1 = ""
-    with open(os.path.join(dir, ".paul1"), "r") as f:
+    with open(os.path.join(userdir, ".ssh/.paul1"), "r") as f:
             apikey1 = f.read()
             apikey1 = apikey1.strip()
 
     apikey2 = ""
-    with open(os.path.join(dir, ".paul2"), "r") as f:
+    with open(os.path.join(userdir, ".ssh/.paul2"), "r") as f:
             apikey2 = f.read()
             apikey2 = apikey2.strip()
 
