@@ -1,0 +1,448 @@
+2016-07-18 19:56:14 INFO ***start program
+2016-07-18 19:56:14 INFO using directory  /home/sej/fishtank/
+2016-07-18 19:56:14 INFO testing = True
+2016-07-18 19:59:49 INFO ***start program
+2016-07-18 19:59:49 INFO using directory  /home/sej/fishtank/
+2016-07-18 19:59:49 INFO testing = True
+2016-07-18 19:59:49 INFO start light on=05:30
+2016-07-18 19:59:49 INFO end light off=20:45
+2016-07-18 19:59:49 INFO nowtime =19:59
+2016-07-18 19:59:49 INFO relay1_on
+2016-07-18 19:59:49 INFO start relay1_on
+2016-07-18 19:59:49 INFO celcius 25.00  fahrenheit 77.00  ok
+2016-07-18 20:09:49 INFO start tempanalysis
+2016-07-18 20:09:50 DEBUG pd.read_csv done
+2016-07-18 20:09:50 DEBUG dropna done
+2016-07-18 20:09:50 DEBUG plot done
+2016-07-18 20:09:50 DEBUG fig done
+2016-07-18 20:09:50 DEBUG subplot done
+2016-07-18 20:09:50 DEBUG axis format done
+2016-07-18 20:09:50 DEBUG plot done
+2016-07-18 20:09:50 INFO end tempanalysis
+2016-07-18 20:11:18 INFO keyboard exception
+2016-07-18 20:43:10 INFO ***start program
+2016-07-18 20:43:10 INFO using directory  /home/sej/fishtank/
+2016-07-18 20:43:10 INFO testing = True
+2016-07-18 20:43:10 INFO ***plotonly***
+2016-07-18 20:43:10 INFO start tempanalysis
+2016-07-18 20:43:10 DEBUG pd.read_csv done
+2016-07-18 20:43:10 DEBUG plot done
+2016-07-18 20:43:10 DEBUG fig done
+2016-07-18 20:43:10 DEBUG subplot done
+2016-07-18 20:43:10 DEBUG axis format done
+2016-07-18 20:43:10 INFO end tempanalysis
+2016-07-18 20:46:18 INFO ***start program
+2016-07-18 20:46:18 INFO using directory  /home/sej/fishtank/
+2016-07-18 20:46:18 INFO testing = True
+2016-07-18 20:46:18 INFO start light on=05:30
+2016-07-18 20:46:18 INFO end light off=20:45
+2016-07-18 20:46:18 INFO nowtime =20:46
+2016-07-18 20:46:18 INFO relay1_off
+2016-07-18 20:46:18 INFO start relay1_off
+2016-07-18 20:46:18 INFO celcius 28.00  fahrenheit 82.40  hi
+2016-07-18 20:47:30 INFO keyboard exception
+2016-07-18 20:47:33 INFO ***start program
+2016-07-18 20:47:33 INFO using directory  /home/sej/fishtank/
+2016-07-18 20:47:33 INFO testing = True
+2016-07-18 20:47:33 INFO start light on=05:30
+2016-07-18 20:47:33 INFO end light off=20:45
+2016-07-18 20:47:33 INFO nowtime =20:47
+2016-07-18 20:47:33 INFO relay1_off
+2016-07-18 20:47:33 INFO start relay1_off
+2016-07-18 20:47:33 INFO celcius 26.00  fahrenheit 78.80  ok
+2016-07-18 20:48:53 INFO keyboard exception
+2016-07-18 20:49:46 INFO ***start program
+2016-07-18 20:49:46 INFO using directory  /home/sej/fishtank/
+2016-07-18 20:49:46 INFO testing = True
+2016-07-18 20:49:46 INFO ***plotonly***
+2016-07-18 20:49:46 INFO start tempanalysis
+2016-07-18 20:49:46 DEBUG pd.read_csv done
+2016-07-18 20:49:46 DEBUG plot done
+2016-07-18 20:49:46 DEBUG fig done
+2016-07-18 20:49:46 DEBUG subplot done
+2016-07-18 20:49:46 DEBUG axis format done
+2016-07-18 20:49:47 INFO end tempanalysis
+2016-07-18 20:51:36 INFO ***start program
+2016-07-18 20:51:36 INFO using directory  /home/sej/fishtank/
+2016-07-18 20:51:36 INFO testing = True
+2016-07-18 20:51:36 INFO ***plotonly***
+2016-07-18 20:51:36 INFO start tempanalysis
+2016-07-18 20:51:36 DEBUG pd.read_csv done
+2016-07-18 20:51:36 DEBUG plot done
+2016-07-18 20:51:36 DEBUG fig done
+2016-07-18 20:51:36 DEBUG subplot done
+2016-07-18 20:51:36 DEBUG axis format done
+2016-07-18 20:51:40 INFO end tempanalysis
+2016-07-18 23:02:23 INFO ***start program
+2016-07-18 23:02:23 INFO using directory  /home/sej/fishtank/
+2016-07-18 23:02:23 INFO testing = True
+2016-07-18 23:02:23 INFO ***plotonly***
+2016-07-18 23:02:23 INFO start tempanalysis
+2016-07-18 23:02:27 INFO end tempanalysis
+2016-07-19 20:17:34 INFO ***start program
+2016-07-19 20:17:34 INFO using directory  /home/sej/fishtank/
+2016-07-19 20:17:34 INFO testing = True
+2016-07-19 20:17:34 INFO start light on=05:30
+2016-07-19 20:17:34 INFO end light off=20:45
+2016-07-19 20:17:34 INFO nowtime =20:17
+2016-07-19 20:17:34 INFO relay1_on
+2016-07-19 20:17:34 INFO start relay1_on
+2016-07-19 20:17:34 INFO celcius 26.00  fahrenheit 78.80  ok
+2016-07-19 20:18:03 INFO keyboard exception
+2016-07-20 12:38:43 INFO ***start program
+2016-07-20 12:38:43 INFO using directory  /home/sej/fishtank/
+2016-07-20 12:38:43 INFO testing = True
+2016-07-20 12:38:43 INFO start light on=05:30
+2016-07-20 12:38:43 INFO end light off=20:45
+2016-07-20 12:38:43 INFO nowtime =12:38
+2016-07-20 12:38:43 INFO start relay1_on
+2016-07-20 12:38:43 INFO relay1_on
+2016-07-20 12:38:43 INFO celcius 26.00  fahrenheit 78.80  ok
+2016-07-20 12:48:43 DEBUG tempanalysis start
+2016-07-20 12:48:43 DEBUG pd.read_csv done
+2016-07-20 14:12:04 INFO ***start program
+2016-07-20 14:12:04 INFO using directory  /home/sej/fishtank/
+2016-07-20 14:12:04 INFO testing = True
+2016-07-20 14:12:04 INFO ***plotonly***
+2016-07-20 14:12:04 DEBUG tempanalysis start
+2016-07-20 14:12:04 DEBUG pd.read_csv done
+2016-07-20 14:12:04 DEBUG plot done
+2016-07-20 14:12:04 DEBUG fig done
+2016-07-20 14:12:04 DEBUG subplot done
+2016-07-20 14:12:04 DEBUG axis format done
+2016-07-20 14:12:51 INFO tempanalysis done
+2016-07-20 14:13:50 INFO ***start program
+2016-07-20 14:13:50 INFO using directory  /home/sej/fishtank/
+2016-07-20 14:13:50 INFO testing = True
+2016-07-20 14:13:50 INFO ***plotonly***
+2016-07-20 14:13:50 DEBUG tempanalysis start
+2016-07-20 14:13:50 DEBUG pd.read_csv done
+2016-07-20 14:13:50 DEBUG plot done
+2016-07-20 14:13:50 DEBUG fig done
+2016-07-20 14:13:50 DEBUG subplot done
+2016-07-20 14:13:50 DEBUG axis format done
+2016-07-20 14:14:14 INFO tempanalysis done
+2016-07-20 14:26:00 INFO ***start program
+2016-07-20 14:26:00 INFO using directory  /home/sej/fishtank/
+2016-07-20 14:26:00 INFO testing = True
+2016-07-20 14:26:00 INFO ***plotonly***
+2016-07-20 14:26:00 DEBUG tempanalysis start
+2016-07-20 14:26:00 DEBUG pd.read_csv done
+2016-07-20 14:26:00 DEBUG plot done
+2016-07-20 14:26:00 DEBUG fig done
+2016-07-20 14:26:00 DEBUG subplot done
+2016-07-20 14:33:08 INFO ***start program
+2016-07-20 14:33:08 INFO using directory  /home/sej/fishtank/
+2016-07-20 14:33:08 INFO testing = True
+2016-07-20 14:33:08 INFO ***plotonly***
+2016-07-20 14:33:08 DEBUG tempanalysis start
+2016-07-20 14:33:08 DEBUG pd.read_csv done
+2016-07-20 14:33:09 DEBUG plot done
+2016-07-20 14:33:09 DEBUG fig done
+2016-07-20 14:33:09 DEBUG subplot done
+2016-07-20 14:34:11 INFO ***start program
+2016-07-20 14:34:11 INFO using directory  /home/sej/fishtank/
+2016-07-20 14:34:11 INFO testing = True
+2016-07-20 14:34:11 INFO ***plotonly***
+2016-07-20 14:34:11 DEBUG tempanalysis start
+2016-07-20 14:34:11 DEBUG pd.read_csv done
+2016-07-20 14:34:11 DEBUG plot done
+2016-07-20 14:34:11 DEBUG fig done
+2016-07-20 14:34:11 DEBUG subplot done
+2016-07-20 14:44:53 INFO ***start program
+2016-07-20 14:44:53 INFO using directory  /home/sej/fishtank/
+2016-07-20 14:44:53 INFO testing = True
+2016-07-20 14:44:53 INFO ***plotonly***
+2016-07-20 14:44:53 DEBUG tempanalysis start
+2016-07-20 14:44:53 DEBUG pd.read_csv done
+2016-07-20 14:44:54 DEBUG plot done
+2016-07-20 14:44:54 DEBUG fig done
+2016-07-20 14:44:54 DEBUG subplot done
+2016-07-20 14:44:54 DEBUG axis format done
+2016-07-20 14:45:25 INFO tempanalysis done
+2016-07-20 14:46:00 INFO ***start program
+2016-07-20 14:46:00 INFO using directory  /home/sej/fishtank/
+2016-07-20 14:46:00 INFO testing = True
+2016-07-20 14:46:00 INFO ***plotonly***
+2016-07-20 14:46:00 DEBUG tempanalysis start
+2016-07-20 14:46:00 DEBUG pd.read_csv done
+2016-07-20 14:46:00 DEBUG plot done
+2016-07-20 14:46:00 DEBUG fig done
+2016-07-20 14:46:00 DEBUG subplot done
+2016-07-20 14:46:00 DEBUG axis format done
+2016-07-20 14:46:21 INFO tempanalysis done
+2016-07-20 14:47:01 INFO ***start program
+2016-07-20 14:47:01 INFO using directory  /home/sej/fishtank/
+2016-07-20 14:47:01 INFO testing = True
+2016-07-20 14:47:01 INFO ***plotonly***
+2016-07-20 14:47:01 DEBUG tempanalysis start
+2016-07-20 14:47:01 DEBUG pd.read_csv done
+2016-07-20 14:47:01 DEBUG plot done
+2016-07-20 14:47:01 DEBUG fig done
+2016-07-20 14:47:01 DEBUG subplot done
+2016-07-20 14:47:01 DEBUG axis format done
+2016-07-20 14:47:40 INFO tempanalysis done
+2016-07-20 15:05:20 INFO ***start program
+2016-07-20 15:05:20 INFO using directory  /home/sej/fishtank/
+2016-07-20 15:05:20 INFO testing = True
+2016-07-20 15:05:20 INFO ***plotonly***
+2016-07-20 15:05:20 DEBUG tempanalysis start
+2016-07-20 15:05:20 DEBUG pd.read_csv done
+2016-07-20 15:05:20 DEBUG plot done
+2016-07-20 15:05:20 DEBUG fig done
+2016-07-20 15:05:20 DEBUG subplot done
+2016-07-20 15:05:20 DEBUG axis format done
+2016-07-20 15:06:54 INFO tempanalysis done
+2016-07-20 15:19:10 INFO ***start program
+2016-07-20 15:19:10 INFO using directory  /home/sej/fishtank/
+2016-07-20 15:19:10 INFO testing = True
+2016-07-20 15:19:10 INFO ***plotonly***
+2016-07-20 15:19:10 DEBUG tempanalysis start
+2016-07-20 15:19:10 DEBUG pd.read_csv done
+2016-07-20 15:19:10 DEBUG plot done
+2016-07-20 15:19:10 DEBUG fig done
+2016-07-20 15:19:10 DEBUG subplot done
+2016-07-20 15:19:10 DEBUG axis format done
+2016-07-20 15:19:13 INFO tempanalysis done
+2016-07-20 15:19:43 INFO ***start program
+2016-07-20 15:19:43 INFO using directory  /home/sej/fishtank/
+2016-07-20 15:19:43 INFO testing = True
+2016-07-20 15:19:43 INFO ***plotonly***
+2016-07-20 15:19:43 DEBUG tempanalysis start
+2016-07-20 15:19:43 DEBUG pd.read_csv done
+2016-07-20 15:19:43 DEBUG plot done
+2016-07-20 15:19:43 DEBUG fig done
+2016-07-20 15:19:43 DEBUG subplot done
+2016-07-20 15:19:43 DEBUG axis format done
+2016-07-20 15:19:47 INFO tempanalysis done
+2016-07-20 15:21:58 INFO ***start program
+2016-07-20 15:21:58 INFO using directory  /home/sej/fishtank/
+2016-07-20 15:21:58 INFO testing = True
+2016-07-20 15:21:58 INFO ***plotonly***
+2016-07-20 15:21:58 DEBUG tempanalysis start
+2016-07-20 15:21:58 DEBUG pd.read_csv done
+2016-07-20 15:21:58 DEBUG plot done
+2016-07-20 15:21:58 DEBUG fig done
+2016-07-20 15:21:58 DEBUG subplot done
+2016-07-20 15:21:58 DEBUG axis format done
+2016-07-20 15:22:04 INFO tempanalysis done
+2016-07-20 15:25:09 INFO ***start program
+2016-07-20 15:25:09 INFO using directory  /home/sej/fishtank/
+2016-07-20 15:25:09 INFO testing = True
+2016-07-20 15:25:09 INFO ***plotonly***
+2016-07-20 15:25:09 DEBUG tempanalysis start
+2016-07-20 15:25:09 DEBUG pd.read_csv done
+2016-07-20 15:25:09 DEBUG plot done
+2016-07-20 15:25:09 DEBUG fig done
+2016-07-20 15:25:09 DEBUG subplot done
+2016-07-20 15:25:09 DEBUG axis format done
+2016-07-20 15:25:22 INFO tempanalysis done
+2016-07-20 15:26:29 INFO ***start program
+2016-07-20 15:26:29 INFO using directory  /home/sej/fishtank/
+2016-07-20 15:26:29 INFO testing = True
+2016-07-20 15:26:29 INFO ***plotonly***
+2016-07-20 15:26:29 DEBUG tempanalysis start
+2016-07-20 15:26:29 DEBUG pd.read_csv done
+2016-07-20 15:26:29 DEBUG plot done
+2016-07-20 15:26:29 DEBUG fig done
+2016-07-20 15:26:29 DEBUG subplot done
+2016-07-20 15:26:29 DEBUG axis format done
+2016-07-20 15:26:39 INFO tempanalysis done
+2016-07-20 15:28:30 INFO ***start program
+2016-07-20 15:28:30 INFO using directory  /home/sej/fishtank/
+2016-07-20 15:28:30 INFO testing = True
+2016-07-20 15:28:30 INFO ***plotonly***
+2016-07-20 15:28:30 DEBUG tempanalysis start
+2016-07-20 15:28:30 DEBUG pd.read_csv done
+2016-07-20 15:28:30 DEBUG plot done
+2016-07-20 15:28:30 DEBUG fig done
+2016-07-20 15:28:30 DEBUG subplot done
+2016-07-20 15:28:30 DEBUG axis format done
+2016-07-20 15:28:44 INFO tempanalysis done
+2016-07-20 16:49:10 INFO ***start program
+2016-07-20 16:49:10 INFO using directory  /home/sej/fishtank/
+2016-07-20 16:49:10 INFO testing = True
+2016-07-20 16:49:10 INFO ***plotonly***
+2016-07-20 16:49:10 DEBUG tempanalysis start
+2016-07-20 16:49:10 DEBUG pd.read_csv done
+2016-07-20 16:49:10 DEBUG plot done
+2016-07-20 16:49:10 DEBUG fig done
+2016-07-20 16:49:10 DEBUG subplot done
+2016-07-20 16:49:10 DEBUG axis format done
+2016-07-20 16:49:21 INFO tempanalysis done
+2016-07-20 16:50:09 INFO ***start program
+2016-07-20 16:50:09 INFO using directory  /home/sej/fishtank/
+2016-07-20 16:50:09 INFO testing = True
+2016-07-20 16:50:09 INFO ***plotonly***
+2016-07-20 16:50:09 DEBUG tempanalysis start
+2016-07-20 16:50:09 DEBUG pd.read_csv done
+2016-07-20 16:50:09 DEBUG plot done
+2016-07-20 16:50:09 DEBUG fig done
+2016-07-20 16:50:09 DEBUG subplot done
+2016-07-20 16:50:09 DEBUG axis format done
+2016-07-20 16:50:30 INFO tempanalysis done
+2016-07-20 16:51:06 INFO ***start program
+2016-07-20 16:51:06 INFO using directory  /home/sej/fishtank/
+2016-07-20 16:51:06 INFO testing = True
+2016-07-20 16:51:06 INFO ***plotonly***
+2016-07-20 16:51:06 DEBUG tempanalysis start
+2016-07-20 16:51:06 DEBUG pd.read_csv done
+2016-07-20 16:51:06 DEBUG plot done
+2016-07-20 16:51:06 DEBUG fig done
+2016-07-20 16:51:06 DEBUG subplot done
+2016-07-20 16:51:06 DEBUG axis format done
+2016-07-20 16:51:22 INFO tempanalysis done
+2016-07-20 16:55:31 INFO ***start program
+2016-07-20 16:55:31 INFO using directory  /home/sej/fishtank/
+2016-07-20 16:55:31 INFO testing = True
+2016-07-20 16:55:31 INFO ***plotonly***
+2016-07-20 16:55:31 DEBUG tempanalysis start
+2016-07-20 16:55:31 DEBUG pd.read_csv done
+2016-07-20 16:55:31 DEBUG plot done
+2016-07-20 16:55:31 DEBUG fig done
+2016-07-20 16:55:31 DEBUG subplot done
+2016-07-20 16:55:31 DEBUG axis format done
+2016-07-20 16:55:36 INFO tempanalysis done
+2016-07-20 17:00:18 INFO ***start program
+2016-07-20 17:00:18 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:00:18 INFO testing = True
+2016-07-20 17:00:18 INFO ***plotonly***
+2016-07-20 17:00:18 DEBUG tempanalysis start
+2016-07-20 17:00:18 DEBUG pd.read_csv done
+2016-07-20 17:00:18 DEBUG plot done
+2016-07-20 17:00:18 DEBUG fig done
+2016-07-20 17:00:18 DEBUG subplot done
+2016-07-20 17:00:18 DEBUG axis format done
+2016-07-20 17:00:24 INFO tempanalysis done
+2016-07-20 17:01:08 INFO ***start program
+2016-07-20 17:01:08 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:01:08 INFO testing = True
+2016-07-20 17:01:08 INFO ***plotonly***
+2016-07-20 17:01:08 DEBUG tempanalysis start
+2016-07-20 17:01:08 DEBUG pd.read_csv done
+2016-07-20 17:01:08 DEBUG plot done
+2016-07-20 17:01:08 DEBUG fig done
+2016-07-20 17:01:08 DEBUG subplot done
+2016-07-20 17:01:08 DEBUG axis format done
+2016-07-20 17:01:19 INFO tempanalysis done
+2016-07-20 17:04:33 INFO ***start program
+2016-07-20 17:04:33 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:04:33 INFO testing = True
+2016-07-20 17:04:33 INFO ***plotonly***
+2016-07-20 17:04:33 DEBUG tempanalysis start
+2016-07-20 17:04:33 DEBUG pd.read_csv done
+2016-07-20 17:04:33 DEBUG plot done
+2016-07-20 17:04:33 DEBUG fig done
+2016-07-20 17:04:33 DEBUG subplot done
+2016-07-20 17:04:33 DEBUG axis format done
+2016-07-20 17:04:41 INFO tempanalysis done
+2016-07-20 17:04:52 INFO ***start program
+2016-07-20 17:04:52 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:04:52 INFO testing = True
+2016-07-20 17:04:52 INFO ***plotonly***
+2016-07-20 17:04:52 DEBUG tempanalysis start
+2016-07-20 17:04:52 DEBUG pd.read_csv done
+2016-07-20 17:04:52 DEBUG plot done
+2016-07-20 17:04:52 DEBUG fig done
+2016-07-20 17:04:52 DEBUG subplot done
+2016-07-20 17:04:52 DEBUG axis format done
+2016-07-20 17:05:07 INFO tempanalysis done
+2016-07-20 17:05:27 INFO ***start program
+2016-07-20 17:05:27 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:05:27 INFO testing = True
+2016-07-20 17:05:27 INFO ***plotonly***
+2016-07-20 17:05:27 DEBUG tempanalysis start
+2016-07-20 17:05:27 DEBUG pd.read_csv done
+2016-07-20 17:05:27 DEBUG plot done
+2016-07-20 17:05:27 DEBUG fig done
+2016-07-20 17:05:27 DEBUG subplot done
+2016-07-20 17:05:27 DEBUG axis format done
+2016-07-20 17:05:36 INFO tempanalysis done
+2016-07-20 17:06:39 INFO ***start program
+2016-07-20 17:06:39 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:06:39 INFO testing = True
+2016-07-20 17:06:39 INFO ***plotonly***
+2016-07-20 17:06:39 DEBUG tempanalysis start
+2016-07-20 17:06:39 DEBUG pd.read_csv done
+2016-07-20 17:06:39 DEBUG plot done
+2016-07-20 17:06:39 DEBUG fig done
+2016-07-20 17:06:39 DEBUG subplot done
+2016-07-20 17:06:39 DEBUG axis format done
+2016-07-20 17:06:46 INFO tempanalysis done
+2016-07-20 17:09:56 INFO ***start program
+2016-07-20 17:09:56 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:09:56 INFO testing = True
+2016-07-20 17:09:56 INFO ***plotonly***
+2016-07-20 17:09:56 DEBUG tempanalysis start
+2016-07-20 17:09:56 DEBUG pd.read_csv done
+2016-07-20 17:09:56 DEBUG plot done
+2016-07-20 17:09:56 DEBUG fig done
+2016-07-20 17:09:56 DEBUG subplot done
+2016-07-20 17:09:56 DEBUG axis format done
+2016-07-20 17:12:38 INFO tempanalysis done
+2016-07-20 17:16:02 INFO ***start program
+2016-07-20 17:16:02 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:16:02 INFO testing = True
+2016-07-20 17:16:02 INFO ***plotonly***
+2016-07-20 17:16:02 DEBUG tempanalysis start
+2016-07-20 17:16:02 DEBUG pd.read_csv done
+2016-07-20 17:16:02 DEBUG plot done
+2016-07-20 17:16:02 DEBUG fig done
+2016-07-20 17:16:02 DEBUG subplot done
+2016-07-20 17:16:02 DEBUG axis format done
+2016-07-20 17:16:37 INFO tempanalysis done
+2016-07-20 17:17:30 INFO ***start program
+2016-07-20 17:17:30 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:17:30 INFO testing = True
+2016-07-20 17:17:30 INFO ***plotonly***
+2016-07-20 17:17:30 DEBUG tempanalysis start
+2016-07-20 17:17:30 DEBUG pd.read_csv done
+2016-07-20 17:17:30 DEBUG plot done
+2016-07-20 17:17:30 DEBUG fig done
+2016-07-20 17:17:30 DEBUG subplot done
+2016-07-20 17:17:30 DEBUG axis format done
+2016-07-20 17:17:36 INFO tempanalysis done
+2016-07-20 17:18:01 INFO ***start program
+2016-07-20 17:18:01 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:18:01 INFO testing = True
+2016-07-20 17:18:01 INFO ***plotonly***
+2016-07-20 17:18:01 DEBUG tempanalysis start
+2016-07-20 17:18:01 DEBUG pd.read_csv done
+2016-07-20 17:18:01 DEBUG plot done
+2016-07-20 17:18:01 DEBUG fig done
+2016-07-20 17:18:01 DEBUG subplot done
+2016-07-20 17:18:01 DEBUG axis format done
+2016-07-20 17:18:11 INFO tempanalysis done
+2016-07-20 17:18:23 INFO ***start program
+2016-07-20 17:18:23 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:18:23 INFO testing = True
+2016-07-20 17:18:23 INFO ***plotonly***
+2016-07-20 17:18:23 DEBUG tempanalysis start
+2016-07-20 17:18:23 DEBUG pd.read_csv done
+2016-07-20 17:18:23 DEBUG plot done
+2016-07-20 17:18:23 DEBUG fig done
+2016-07-20 17:18:23 DEBUG subplot done
+2016-07-20 17:18:23 DEBUG axis format done
+2016-07-20 17:18:38 INFO tempanalysis done
+2016-07-20 17:18:42 INFO ***start program
+2016-07-20 17:18:42 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:18:42 INFO testing = True
+2016-07-20 17:18:42 INFO ***plotonly***
+2016-07-20 17:18:42 DEBUG tempanalysis start
+2016-07-20 17:18:42 DEBUG pd.read_csv done
+2016-07-20 17:18:42 DEBUG plot done
+2016-07-20 17:18:42 DEBUG fig done
+2016-07-20 17:18:42 DEBUG subplot done
+2016-07-20 17:18:42 DEBUG axis format done
+2016-07-20 17:18:47 INFO tempanalysis done
+2016-07-20 17:18:59 INFO ***start program
+2016-07-20 17:18:59 INFO using directory  /home/sej/fishtank/
+2016-07-20 17:18:59 INFO testing = True
+2016-07-20 17:18:59 INFO ***plotonly***
+2016-07-20 17:18:59 DEBUG tempanalysis start
+2016-07-20 17:18:59 DEBUG pd.read_csv done
+2016-07-20 17:18:59 DEBUG plot done
+2016-07-20 17:18:59 DEBUG fig done
+2016-07-20 17:18:59 DEBUG subplot done
+2016-07-20 17:18:59 DEBUG axis format done
+2016-07-20 17:19:07 INFO tempanalysis done

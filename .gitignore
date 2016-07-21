@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# paul extensions
+*.paul*
+
 # C extensions
 *.so
 
@@ -50,7 +53,6 @@ coverage.xml
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 
 # Flask stuff:
