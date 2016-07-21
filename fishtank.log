@@ -508,3 +508,23 @@
 2016-07-21 15:55:29 DEBUG subplot done
 2016-07-21 15:55:29 DEBUG axis format done
 2016-07-21 15:55:31 INFO tempanalysis done
+2016-07-21 16:02:59 INFO ***start program
+2016-07-21 16:02:59 INFO using directory  /home/pi/fishtank/
+2016-07-21 16:02:59 INFO testing = False
+2016-07-21 16:02:59 INFO start light on=05:30
+2016-07-21 16:02:59 INFO end light off=20:45
+2016-07-21 16:02:59 INFO nowtime =16:02
+2016-07-21 16:02:59 INFO start relay1_on
+2016-07-21 16:02:59 INFO relay1_on
+2016-07-21 16:02:59 INFO celcius 25.81  fahrenheit 78.46  ok
+2016-07-21 16:03:31 INFO tempanalysis done
+2016-07-21 16:06:23 INFO keyboard exception
+2016-07-21 16:07:36 INFO ***start program
+2016-07-21 16:07:36 INFO using directory  /home/pi/fishtank/
+2016-07-21 16:07:36 INFO testing = False
+2016-07-21 16:07:36 INFO start light on=05:30
+2016-07-21 16:07:36 INFO end light off=20:45
+2016-07-21 16:07:36 INFO nowtime =16:07
+2016-07-21 16:07:36 INFO start relay1_on
+2016-07-21 16:07:36 INFO relay1_on
+2016-07-21 16:07:36 INFO celcius 25.88  fahrenheit 78.58  ok
