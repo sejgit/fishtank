@@ -446,3 +446,65 @@
 2016-07-20 17:18:59 DEBUG subplot done
 2016-07-20 17:18:59 DEBUG axis format done
 2016-07-20 17:19:07 INFO tempanalysis done
+2016-07-21 14:22:41 INFO ***start program
+2016-07-21 14:22:41 INFO using directory  /home/pi/fishtank/
+2016-07-21 14:22:41 INFO testing = False
+2016-07-21 14:22:42 INFO start light on=05:30
+2016-07-21 14:22:42 INFO end light off=20:45
+2016-07-21 14:22:42 INFO nowtime =14:22
+2016-07-21 14:22:42 INFO start relay1_on
+2016-07-21 14:22:42 INFO relay1_on
+2016-07-21 14:22:42 INFO celcius 25.88  fahrenheit 78.58  ok
+2016-07-21 14:33:03 INFO tempanalysis done
+2016-07-21 14:43:05 INFO tempanalysis done
+2016-07-21 14:53:08 INFO tempanalysis done
+2016-07-21 15:03:11 INFO tempanalysis done
+2016-07-21 15:13:13 INFO tempanalysis done
+2016-07-21 15:23:17 INFO tempanalysis done
+2016-07-21 15:33:20 INFO tempanalysis done
+2016-07-21 15:43:24 INFO tempanalysis done
+2016-07-21 15:47:06 INFO ***start program
+2016-07-21 15:47:06 INFO using directory  /home/pi/fishtank/
+2016-07-21 15:47:06 INFO testing = True
+2016-07-21 15:47:06 INFO ***plotonly***
+2016-07-21 15:47:06 DEBUG tempanalysis start
+2016-07-21 15:47:06 DEBUG pd.read_csv done
+2016-07-21 15:47:08 DEBUG plot done
+2016-07-21 15:47:08 DEBUG fig done
+2016-07-21 15:47:08 DEBUG subplot done
+2016-07-21 15:47:08 DEBUG axis format done
+2016-07-21 15:47:09 INFO tempanalysis done
+2016-07-21 15:50:20 INFO ***start program
+2016-07-21 15:50:20 INFO using directory  /home/pi/fishtank/
+2016-07-21 15:50:20 INFO testing = True
+2016-07-21 15:50:20 INFO ***plotonly***
+2016-07-21 15:50:20 DEBUG tempanalysis start
+2016-07-21 15:50:20 DEBUG pd.read_csv done
+2016-07-21 15:50:21 DEBUG plot done
+2016-07-21 15:50:21 DEBUG fig done
+2016-07-21 15:50:21 DEBUG subplot done
+2016-07-21 15:50:21 DEBUG axis format done
+2016-07-21 15:50:23 INFO tempanalysis done
+2016-07-21 15:52:32 INFO ***start program
+2016-07-21 15:52:32 INFO using directory  /home/pi/fishtank/
+2016-07-21 15:52:32 INFO testing = True
+2016-07-21 15:52:32 INFO ***plotonly***
+2016-07-21 15:52:32 DEBUG tempanalysis start
+2016-07-21 15:52:32 DEBUG pd.read_csv done
+2016-07-21 15:52:34 DEBUG plot done
+2016-07-21 15:52:34 DEBUG fig done
+2016-07-21 15:52:34 DEBUG subplot done
+2016-07-21 15:52:34 DEBUG axis format done
+2016-07-21 15:52:35 INFO tempanalysis done
+2016-07-21 15:53:28 INFO tempanalysis done
+2016-07-21 15:55:28 INFO ***start program
+2016-07-21 15:55:28 INFO using directory  /home/pi/fishtank/
+2016-07-21 15:55:28 INFO testing = True
+2016-07-21 15:55:28 INFO ***plotonly***
+2016-07-21 15:55:28 DEBUG tempanalysis start
+2016-07-21 15:55:28 DEBUG pd.read_csv done
+2016-07-21 15:55:29 DEBUG plot done
+2016-07-21 15:55:29 DEBUG fig done
+2016-07-21 15:55:29 DEBUG subplot done
+2016-07-21 15:55:29 DEBUG axis format done
+2016-07-21 15:55:31 INFO tempanalysis done
