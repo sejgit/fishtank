@@ -1,2 +1,4 @@
 # fishtank
-fishtank lights temp and perhaps feeder
+fishtank light & bubbler control
+temperature monitoring, graphing, and push when out of range
+
