@@ -1,0 +1,9 @@
+2016-07-30 10:10:06 INFO ***start program
+2016-07-30 10:10:06 INFO using directory  /home/pi/fishtank/
+2016-07-30 10:10:06 INFO testing = False
+2016-07-30 10:10:06 INFO start light on=05:30
+2016-07-30 10:10:06 INFO end light off=20:45
+2016-07-30 10:10:06 INFO nowtime =10:10
+2016-07-30 10:10:06 INFO start relay1_on
+2016-07-30 10:10:06 INFO relay1_on
+2016-07-30 10:10:06 INFO celcius 25.81  fahrenheit 78.46  ok
