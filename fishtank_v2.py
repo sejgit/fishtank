@@ -148,8 +148,8 @@ if not args.test:
         device_file = device_folder + '/w1_slave'
 
 
-temp_f_hi = 80
-temp_f_lo = 77
+temp_f_hi = 79.5
+temp_f_lo = 77.5
 temp_c_test = 26
 
 # prowl vars
@@ -294,7 +294,7 @@ def tempanalysis():
                                     skipinitialspace=True)
                 logger.debug('pd.read_csv done')
                 pdinp = pdinp.dropna()
-                pdinp.plot(title='FishTank Temperature', linewidth=.2,
+                pdinp.plot(title='FishTank Temperature', linewidth=.3,
                            kind='line',grid=True, y='temp_F',
                            ylim=[temp_f_lo, temp_f_hi])
                 logger.debug('plot done')
