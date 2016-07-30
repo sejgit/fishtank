@@ -294,7 +294,7 @@ def tempanalysis():
                                     skipinitialspace=True)
                 logger.debug('pd.read_csv done')
                 pdinp = pdinp.dropna()
-                pdinp.plot(title='FishTank Temperature',
+                pdinp.plot(title='FishTank Temperature', linewidth=.1,
                            kind='line',grid=True, y='temp_F',
                            ylim=[temp_f_lo, temp_f_hi])
                 logger.debug('plot done')
