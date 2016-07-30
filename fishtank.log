@@ -1805,3 +1805,22 @@
 2016-07-30 09:09:43 INFO tempanalysis done
 2016-07-30 09:19:48 INFO tempanalysis done
 2016-07-30 09:29:53 INFO tempanalysis done
+2016-07-30 09:40:18 INFO ***start program
+2016-07-30 09:40:18 INFO using directory  /home/pi/fishtank/
+2016-07-30 09:40:18 INFO testing = False
+2016-07-30 09:40:18 INFO start light on=05:30
+2016-07-30 09:40:18 INFO end light off=20:45
+2016-07-30 09:40:18 INFO nowtime =09:40
+2016-07-30 09:40:18 INFO start relay1_on
+2016-07-30 09:40:18 INFO relay1_on
+2016-07-30 09:40:18 INFO celcius 25.62  fahrenheit 78.12  ok
+2016-07-30 09:50:24 INFO tempanalysis done
+2016-07-30 09:59:15 INFO ***start program
+2016-07-30 09:59:15 INFO using directory  /home/pi/fishtank/
+2016-07-30 09:59:15 INFO testing = False
+2016-07-30 09:59:15 INFO start light on=05:30
+2016-07-30 09:59:15 INFO end light off=20:45
+2016-07-30 09:59:15 INFO nowtime =09:59
+2016-07-30 09:59:15 INFO start relay1_on
+2016-07-30 09:59:15 INFO relay1_on
+2016-07-30 09:59:15 INFO celcius 25.75  fahrenheit 78.35  ok
