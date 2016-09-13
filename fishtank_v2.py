@@ -12,6 +12,7 @@
 # 2016 07 19 prowl warnings & status
 # 2016 07 20 fix plots
 # 2016 07 21 clean-up .paul files to .ssh
+# 2016 09 12 moved to agg away from X
 
 # todos: max mins and/or trends
 # maybe: button to turn light on at will, auto feeder
@@ -24,6 +25,8 @@
 import datetime as dt
 import pandas as pd
 # import numpy as np
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
 # import matplotlib.ticker as ticker
@@ -203,7 +206,7 @@ def prowl(event, description, pri=None):
                    description,
                    url=None,
                    priority=pri)
-
+            
         except IOError:
             logger.error('prowl error')
         return
@@ -294,10 +297,11 @@ def tempanalysis():
                                     skipinitialspace=True)
                 logger.debug('pd.read_csv done')
                 pdinp = pdinp.dropna()
+                logger.debug('pdinp.dropna done')
                 pdinp.plot(title='FishTank Temperature', linewidth=.3,
                            kind='line',grid=True, y='temp_F',
                            ylim=[temp_f_lo, temp_f_hi])
-                logger.debug('plot done')
+                logger.info('plot done')
                 fig = plt.gcf()
                 fig.suptitle('Fishtank Temperature',
                              fontsize=20)
@@ -316,8 +320,11 @@ def tempanalysis():
                     plt.show()
                 logger.info('tempanalysis done')
                 break
-            except:
+            except Exception as ex:
                 logger.error('tempanalysis error')
+                template = "exception type {0} occured. Arguments:\n{1!r}"
+                logger.error(template.format(type(ex).__name__, ex.args))
+                break
         return
 
 # heartbeat function
