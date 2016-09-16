@@ -13,6 +13,7 @@
 # 2016 07 20 fix plots
 # 2016 07 21 clean-up .paul files to .ssh
 # 2016 09 12 moved to agg away from X
+# 2016 09 15 move temp parameters to work with new heater
 
 # todos: max mins and/or trends
 # maybe: button to turn light on at will, auto feeder
@@ -152,7 +153,7 @@ if not args.test:
 
 
 temp_f_hi = 79.5
-temp_f_lo = 77.5
+temp_f_lo = 75.5
 temp_c_test = 26
 
 # prowl vars
