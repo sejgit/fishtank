@@ -14,6 +14,8 @@
 # 2016 07 21 clean-up .paul files to .ssh
 # 2016 09 12 moved to agg away from X
 # 2016 09 15 move temp parameters to work with new heater
+# 2016 10 19 add relay logic to main loop to fix relay dropping
+
 
 # todos: max mins and/or trends
 # maybe: button to turn light on at will, auto feeder
@@ -362,12 +364,10 @@ def main():
     timestamp = dt.datetime.now().time()
     logger.info('nowtime ='+ str(timestamp)[:5])
 
-    # start or stop light/bubbles on first run
+    # start or stop light/bubbles
     if start <= timestamp <= end:
-        logger.info('start relay1_on')
         relay1_on()
     else:
-        logger.info('start relay1_off')
         relay1_off()
 
     # log & push temp on first run
@@ -387,6 +387,13 @@ def main():
                 with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
                     f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+hb))
                 f.closed
+
+            # start or stop light/bubbles
+            timestamp = dt.datetime.now().time()
+            if start <= timestamp <= end:
+                relay1_on()
+            else:
+                relay1_off()
 
         except KeyboardInterrupt:
             print('\n\nKeyboard exception. Exiting.\n')
