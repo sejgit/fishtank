@@ -15,6 +15,7 @@
 # 2016 09 12 moved to agg away from X
 # 2016 09 15 move temp parameters to work with new heater
 # 2016 10 19 add relay logic to main loop to fix relay dropping
+# 2016 10 31 changed temp raw reading to attempt to fix memory error
 
 
 # todos: max mins and/or trends
@@ -217,12 +218,15 @@ def prowl(event, description, pri=None):
 # temp prob def
 def read_temp_raw():
         if not args.test:
-                catdata = subprocess.Popen(['cat',device_file],
-                                           stdout=subprocess.PIPE,
-                                           stderr=subprocess.PIPE)
-                out,err = catdata.communicate()
-                out_decode = out.decode('utf-8')
-                lines = out_decode.split('\n')
+                f = open(device_file, 'r')
+                lines = f.readlines()
+                f.close()
+                #catdata = subprocess.Popen(['cat',device_file],
+                #                           stdout=subprocess.PIPE,
+                #                           stderr=subprocess.PIPE)
+                #out,err = catdata.communicate()
+                #out_decode = out.decode('utf-8')
+                #lines = out_decode.split('\n')
         else:
                 lines = ''
         return lines
