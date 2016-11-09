@@ -16,7 +16,7 @@
 # 2016 09 15 move temp parameters to work with new heater
 # 2016 10 19 add relay logic to main loop to fix relay dropping
 # 2016 10 31 changed temp raw reading to attempt to fix memory error
-
+# 2016 11 09 if temp ok then send prowl at -2 priority
 
 # todos: max mins and/or trends
 # maybe: button to turn light on at will, auto feeder
@@ -259,7 +259,7 @@ def pushtempstatus():
     if "status_old" not in pushtempstatus.__dict__: pushtempstatus.status_old = 'first run'
     deg_c, deg_f, status = read_temp()
     if status != pushtempstatus.status_old:
-        prowl('temperature ', (" *** " + status + " " + str(deg_f) + ' ***'), 0)
+        prowl('temperature ', (" *** " + status + " " + str(deg_f) + ' ***'), ((status == 'ok') * -2))
         pushtempstatus.status_old = status
     return
 
