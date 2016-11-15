@@ -17,7 +17,7 @@
     <img src="plot.png" alt="temp run chart" width="640" height="480">
 
     <h3>Fishtank now</h3>
-    <img src="cam.jpg" alt="camera" width="640" height="480">
+    <img src="cam.jpg" alt="camera" width="1296" height="972">
 
   </body>
 </html>
