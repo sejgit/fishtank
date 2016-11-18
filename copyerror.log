@@ -1,31 +1,8 @@
-Host key fingerprint is 8e:45:c4:9b:40:d7:9c:60:e7:e8:50:d7:3c:bf:d9:ac
-+---[ECDSA 256]---+
-|     ...*+o+     |
-|      .=.=+ +    |
-|      ..oo.  o   |
-|       +o     .  |
-|        S      = |
-|       +      o o|
-|      . .      . |
-|              E  |
-|                 |
-+-----------------+
-
-/home/pi/fishtank/./copyfishtankpics.sh: line 11:  5403 Killed                  sshpass -f /home/pi/.ssh/sshpassfile scp /home/pi/fishtank/plot.png pi@pi3:/home/pi/fishtank/fishwww/
-Host key fingerprint is 8e:45:c4:9b:40:d7:9c:60:e7:e8:50:d7:3c:bf:d9:ac
-+---[ECDSA 256]---+
-|     ...*+o+     |
-|      .=.=+ +    |
-|      ..oo.  o   |
-|       +o     .  |
-|        S      = |
-|       +      o o|
-|      . .      . |
-|              E  |
-|                 |
-+-----------------+
-
-Permission denied (publickey).
-/home/pi/fishtank/./copyfishtankpics.sh: line 12:  6777 Killed                  sshpass -f /home/pi/.ssh/sshpassfile scp /run/shm/mjpeg/user_annotate.txt pi@pi3:/home/pi/fishtank/fishwww/
-/home/pi/fishtank/./copyfishtankpics.sh: line 13: passfile: command not found
-Could not open a connection to your authentication agent.
+Agent pid 778
+Enter passphrase for (stdin): ssh: connect to host 10.0.1.19 port 22: No route to host
+lost connection
+ssh: connect to host 10.0.1.19 port 22: No route to host
+lost connection
+ssh: connect to host 10.0.1.19 port 22: No route to host
+lost connection
+All identities removed.
