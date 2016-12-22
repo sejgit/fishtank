@@ -1,8 +1,47 @@
-Agent pid 778
-Enter passphrase for (stdin): ssh: connect to host 10.0.1.19 port 22: No route to host
+Agent pid 2515
+Enter passphrase for (stdin): Host key fingerprint is 8e:45:c4:9b:40:d7:9c:60:e7:e8:50:d7:3c:bf:d9:ac
++---[ECDSA 256]---+
+|     ...*+o+     |
+|      .=.=+ +    |
+|      ..oo.  o   |
+|       +o     .  |
+|        S      = |
+|       +      o o|
+|      . .      . |
+|              E  |
+|                 |
++-----------------+
+
+Permission denied (publickey).
 lost connection
-ssh: connect to host 10.0.1.19 port 22: No route to host
+Host key fingerprint is 8e:45:c4:9b:40:d7:9c:60:e7:e8:50:d7:3c:bf:d9:ac
++---[ECDSA 256]---+
+|     ...*+o+     |
+|      .=.=+ +    |
+|      ..oo.  o   |
+|       +o     .  |
+|        S      = |
+|       +      o o|
+|      . .      . |
+|              E  |
+|                 |
++-----------------+
+
+Permission denied (publickey).
 lost connection
-ssh: connect to host 10.0.1.19 port 22: No route to host
+Host key fingerprint is 8e:45:c4:9b:40:d7:9c:60:e7:e8:50:d7:3c:bf:d9:ac
++---[ECDSA 256]---+
+|     ...*+o+     |
+|      .=.=+ +    |
+|      ..oo.  o   |
+|       +o     .  |
+|        S      = |
+|       +      o o|
+|      . .      . |
+|              E  |
+|                 |
++-----------------+
+
+Permission denied (publickey).
 lost connection
 All identities removed.
