@@ -79,6 +79,11 @@ if not args.test:
         import RPi.GPIO as GPIO
 
 
+if args.test:
+        fishlabel=args.label
+else:
+        fishlabel='Fishtank'
+
 ###
 ### get logging going
 ###
@@ -203,10 +208,7 @@ def prowl(event, description, pri=None):
 
             # prowl push to sej
             p.push(apikey1,
-                   if args.test:
-                       args.label,
-                   else
-                       'Fishtank',
+                   fishlabel,
                    event,
                    description,
                    url=None,
@@ -214,10 +216,7 @@ def prowl(event, description, pri=None):
 
             # prowl push to tej
             p.push(apikey2,
-                   if args.test:
-                       args.label,
-                   else
-                       'Fishtank',
+                   fishlabel,
                    event,
                    description,
                    url=None,
