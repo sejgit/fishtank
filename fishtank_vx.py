@@ -316,12 +316,12 @@ def tempanalysis():
                 logger.debug('pd.read_csv done')
                 pdinp = pdinp.dropna()
                 logger.debug('pdinp.dropna done')
-                pdinp.plot(title='FishTank Temperature', linewidth=.3,
+                pdinp.plot(title=fishlabel + ' Temperature', linewidth=.3,
                            kind='line',grid=True, y='temp_F',
                            ylim=[temp_f_lo, temp_f_hi])
                 logger.info('plot done')
                 fig = plt.gcf()
-                fig.suptitle('Fishtank Temperature',
+                fig.suptitle(fishlabel + ' Temperature',
                              fontsize=20)
                 logger.debug('fig done')
                 ax = fig.add_subplot(111)
