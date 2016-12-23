@@ -18,6 +18,7 @@
 # 2016 10 31 changed temp raw reading to attempt to fix memory error
 # 2016 11 09 if temp ok then send prowl at -2 priority
 # 2016 12 22 switch to wiring pi, one relay
+# 2016 12 23 add label switch for house with more than one fishtank
 
 # todos: add option to turn camera off
 # maybe: button to turn light on at will, auto feeder
@@ -58,6 +59,8 @@ parser.add_argument('-p', '--plotonly', action='store_true',
                     help='plot and exit')
 parser.add_argument('-d', '--dir',
                     help='home directory')
+parser.add_argument('-l', '--label',
+                    help='label for output like prowl ; default is fishtank')
 args = parser.parse_args()
 
 if args.dir:
@@ -75,6 +78,11 @@ userdir = os.path.expanduser("~")
 if not args.test:
         import RPi.GPIO as GPIO
 
+
+if args.label:
+        fishlabel=args.label
+else:
+        fishlabel='Fishtank'
 
 ###
 ### get logging going
@@ -200,7 +208,7 @@ def prowl(event, description, pri=None):
 
             # prowl push to sej
             p.push(apikey1,
-                   'Fishtank',
+                   fishlabel,
                    event,
                    description,
                    url=None,
@@ -208,7 +216,7 @@ def prowl(event, description, pri=None):
 
             # prowl push to tej
             p.push(apikey2,
-                   'Fishtank',
+                   fishlabel,
                    event,
                    description,
                    url=None,
@@ -308,12 +316,12 @@ def tempanalysis():
                 logger.debug('pd.read_csv done')
                 pdinp = pdinp.dropna()
                 logger.debug('pdinp.dropna done')
-                pdinp.plot(title='FishTank Temperature', linewidth=.3,
+                pdinp.plot(title=fishlabel + ' Temperature', linewidth=.3,
                            kind='line',grid=True, y='temp_F',
                            ylim=[temp_f_lo, temp_f_hi])
                 logger.info('plot done')
                 fig = plt.gcf()
-                fig.suptitle('Fishtank Temperature',
+                fig.suptitle(fishlabel + ' Temperature',
                              fontsize=20)
                 logger.debug('fig done')
                 ax = fig.add_subplot(111)
@@ -405,10 +413,12 @@ def main():
         except KeyboardInterrupt:
             print('\n\nKeyboard exception. Exiting.\n')
             logger.info('keyboard exception')
+            GPIO.cleanup()
             exit()
 
         except:
             logger.info('program end:', sys.exc_info()[0])
+            GPIO.cleanup()
             exit()
     return
 
