@@ -79,7 +79,7 @@ if not args.test:
         import RPi.GPIO as GPIO
 
 
-if args.test:
+if args.label:
         fishlabel=args.label
 else:
         fishlabel='Fishtank'
