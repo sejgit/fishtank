@@ -19,6 +19,7 @@
 # 2016 11 09 if temp ok then send prowl at -2 priority
 # 2016 12 22 switch to wiring pi, one relay
 # 2016 12 23 add label switch for house with more than one fishtank
+# 2016 12 24 add third prowl/paul output
 
 # todos: add option to turn camera off
 # maybe: button to turn light on at will, auto feeder
@@ -184,6 +185,11 @@ try:
             apikey2 = f.read()
             apikey2 = apikey2.strip()
 
+    apikey3 = ""
+    with open(os.path.join(userdir, ".ssh/.paul3"), "r") as f:
+            apikey3 = f.read()
+            apikey3 = apikey3.strip()
+
 except IOError:
     logger.error("Could not read prowl api file")
 
@@ -216,6 +222,14 @@ def prowl(event, description, pri=None):
 
             # prowl push to tej
             p.push(apikey2,
+                   fishlabel,
+                   event,
+                   description,
+                   url=None,
+                   priority=pri)
+
+            # prowl push to csj
+            p.push(apikey3,
                    fishlabel,
                    event,
                    description,

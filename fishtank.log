@@ -1193,3 +1193,16 @@
 2016-12-24 12:48:27 INFO relay1_on
 2016-12-24 12:49:28 INFO relay1_on
 2016-12-24 12:49:30 INFO plot done
+2016-12-24 12:49:49 INFO tempanalysis done
+2016-12-24 12:50:49 INFO relay1_on
+2016-12-24 12:51:29 INFO ***start program
+2016-12-24 12:51:29 INFO using directory  /home/pi/fishtank/
+2016-12-24 12:51:29 INFO testing = False
+2016-12-24 12:51:29 INFO start light on=05:30
+2016-12-24 12:51:29 INFO end light off=20:45
+2016-12-24 12:51:29 INFO nowtime =12:51
+2016-12-24 12:51:29 INFO relay1_on
+2016-12-24 12:51:30 INFO celcius 24.94  fahrenheit 76.89  ok
+2016-12-24 12:51:50 INFO relay1_on
+2016-12-24 12:52:28 INFO keyboard exception
+2016-12-24 12:52:50 INFO relay1_on
