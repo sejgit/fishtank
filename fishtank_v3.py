@@ -20,9 +20,11 @@
 # 2016 12 22 switch to wiring pi, one relay
 # 2016 12 23 add label switch for house with more than one fishtank
 # 2016 12 24 add third prowl/paul output
+# 2017 02 17 changed from rpi-cam to motioneye, finally round temp to 2 digits
+# 2017 02 17 changed temperature annotation file location for above
 
-# todos: add option to turn camera off
-# maybe: button to turn light on at will, auto feeder
+# todo: add annotation to motioneye camera & perhaps buttons for lights
+# todo: make temperature ranges a parameter instead of hard variable
 
 ###
 ### imports and parse args
@@ -167,8 +169,12 @@ if not args.test:
         device_file = device_folder + '/w1_slave'
 
 
-temp_f_hi = 79.5
-temp_f_lo = 75.5
+temp_f_hi = 69.5
+#temp_f_hi = 79.5
+
+temp_f_lo = 65.5
+#temp_f_lo = 75.5
+
 temp_c_test = 26
 
 # prowl vars
@@ -246,12 +252,6 @@ def read_temp_raw():
                 f = open(device_file, 'r')
                 lines = f.readlines()
                 f.close()
-                #catdata = subprocess.Popen(['cat',device_file],
-                #                           stdout=subprocess.PIPE,
-                #                           stderr=subprocess.PIPE)
-                #out,err = catdata.communicate()
-                #out_decode = out.decode('utf-8')
-                #lines = out_decode.split('\n')
         else:
                 lines = ''
         return lines
@@ -277,7 +277,7 @@ def read_temp():
             status = 'lo'
         else:
             status = 'ok'
-        return temp_c, temp_f, status
+        return round(temp_c,2), round(temp_f), status
 
 # push temp status to prowl
 def pushtempstatus():
