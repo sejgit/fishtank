@@ -277,7 +277,7 @@ def read_temp():
             status = 'lo'
         else:
             status = 'ok'
-        return round(temp_c,2), round(temp_f), status
+        return round(temp_c,2), round(temp_f,2), status
 
 # push temp status to prowl
 def pushtempstatus():

@@ -1,1 +1,1 @@
-celcius 19.50  fahrenheit 67.10  lo 
+celcius 19.56  fahrenheit 67.00  ok*
