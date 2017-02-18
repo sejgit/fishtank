@@ -1252,3 +1252,42 @@
 2017-02-17 17:41:53 INFO nowtime =17:41
 2017-02-17 17:41:53 INFO relay1_on
 2017-02-17 17:41:53 INFO celcius 85.00  fahrenheit 185.00  hi
+2017-02-17 19:25:35 INFO ***start program
+2017-02-17 19:25:35 INFO using directory  /home/pi/fishtank/
+2017-02-17 19:25:35 INFO testing = False
+2017-02-17 19:25:35 INFO start light on=05:30
+2017-02-17 19:25:35 INFO end light off=20:45
+2017-02-17 19:25:35 INFO nowtime =19:25
+2017-02-17 19:25:35 INFO relay1_on
+2017-02-17 19:25:35 INFO celcius 24.88  fahrenheit 76.78  ok
+2017-02-17 19:26:36 INFO relay1_on
+2017-02-17 19:27:36 INFO relay1_on
+2017-02-17 19:28:36 INFO relay1_on
+2017-02-17 19:29:36 INFO relay1_on
+2017-02-17 19:30:36 INFO relay1_on
+2017-02-17 19:31:36 INFO relay1_on
+2017-02-17 19:32:37 INFO relay1_on
+2017-02-17 19:33:37 INFO relay1_on
+2017-02-17 19:34:37 INFO relay1_on
+2017-02-17 19:35:37 INFO relay1_on
+2017-02-17 19:35:45 INFO plot done
+2017-02-17 19:35:48 INFO tempanalysis done
+2017-02-17 19:36:48 INFO relay1_on
+2017-02-17 19:37:48 INFO relay1_on
+2017-02-17 19:38:48 INFO relay1_on
+2017-02-17 19:39:48 INFO relay1_on
+2017-02-17 19:40:49 INFO relay1_on
+2017-02-17 19:41:49 INFO relay1_on
+2017-02-17 19:42:49 INFO relay1_on
+2017-02-17 19:43:49 INFO relay1_on
+2017-02-17 19:44:49 INFO relay1_on
+2017-02-17 19:45:49 INFO relay1_on
+2017-02-17 19:45:58 INFO plot done
+2017-02-17 19:46:01 INFO tempanalysis done
+2017-02-17 19:47:01 INFO relay1_on
+2017-02-17 19:48:01 INFO relay1_on
+2017-02-17 19:49:02 INFO relay1_on
+2017-02-17 19:50:02 INFO relay1_on
+2017-02-17 19:51:02 INFO relay1_on
+2017-02-17 19:52:02 INFO relay1_on
+2017-02-17 19:53:02 INFO relay1_on
