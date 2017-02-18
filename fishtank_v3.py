@@ -413,7 +413,7 @@ def main():
 
             # overlay text onto RPi camera
             if not args.test:
-                with open('/dev/shm/mjpeg/user_annotate.txt', 'w') as f:
+                with open('user_annotate.txt', 'w') as f:
                     f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+hb))
                 f.closed
 

@@ -1206,3 +1206,49 @@
 2016-12-24 12:51:50 INFO relay1_on
 2016-12-24 12:52:28 INFO keyboard exception
 2016-12-24 12:52:50 INFO relay1_on
+2017-02-16 16:17:56 INFO ***start program
+2017-02-16 16:17:56 INFO using directory  /home/pi/fishtank/
+2017-02-16 16:17:56 INFO testing = False
+2017-02-16 16:33:35 INFO ***start program
+2017-02-16 16:33:35 INFO using directory  /home/pi/fishtank/
+2017-02-16 16:33:35 INFO testing = False
+2017-02-17 05:11:11 INFO ***start program
+2017-02-17 05:11:11 INFO using directory  /home/pi/fishtank/
+2017-02-17 05:11:11 INFO testing = False
+2017-02-17 11:00:22 INFO ***start program
+2017-02-17 11:00:22 INFO using directory  /home/pi/fishtank/
+2017-02-17 11:00:22 INFO testing = True
+2017-02-17 11:00:22 INFO ***plotonly***
+2017-02-17 11:00:22 DEBUG tempanalysis start
+2017-02-17 11:00:23 DEBUG pd.read_csv done
+2017-02-17 11:00:23 DEBUG pdinp.dropna done
+2017-02-17 11:00:29 INFO plot done
+2017-02-17 11:00:29 DEBUG fig done
+2017-02-17 11:00:29 DEBUG subplot done
+2017-02-17 11:00:29 DEBUG axis format done
+2017-02-17 11:00:32 INFO tempanalysis done
+2017-02-17 11:46:56 INFO ***start program
+2017-02-17 11:46:56 INFO using directory  /home/pi/fishtank/
+2017-02-17 11:46:56 INFO testing = True
+2017-02-17 11:46:56 INFO start light on=05:30
+2017-02-17 11:46:56 INFO end light off=20:45
+2017-02-17 11:46:56 INFO nowtime =11:46
+2017-02-17 11:46:56 INFO relay1_on
+2017-02-17 11:46:56 INFO celcius 26.00  fahrenheit 78.80  ok
+2017-02-17 11:47:57 INFO relay1_on
+2017-02-17 11:48:57 INFO relay1_on
+2017-02-17 11:49:57 INFO relay1_on
+2017-02-17 11:50:57 INFO relay1_on
+2017-02-17 11:51:57 INFO relay1_on
+2017-02-17 11:52:57 INFO relay1_on
+2017-02-17 11:53:57 INFO relay1_on
+2017-02-17 11:54:57 INFO relay1_on
+2017-02-17 11:55:22 INFO keyboard exception
+2017-02-17 17:41:53 INFO ***start program
+2017-02-17 17:41:53 INFO using directory  /home/pi/fishtank/
+2017-02-17 17:41:53 INFO testing = False
+2017-02-17 17:41:53 INFO start light on=05:30
+2017-02-17 17:41:53 INFO end light off=20:45
+2017-02-17 17:41:53 INFO nowtime =17:41
+2017-02-17 17:41:53 INFO relay1_on
+2017-02-17 17:41:53 INFO celcius 85.00  fahrenheit 185.00  hi
