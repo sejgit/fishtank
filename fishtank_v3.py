@@ -62,8 +62,12 @@ parser.add_argument('-p', '--plotonly', action='store_true',
                     help='plot and exit')
 parser.add_argument('-d', '--dir',
                     help='home directory')
-parser.add_argument('-l', '--label',
-                    help='label for output like prowl ; default is fishtank')
+parser.add_argument('-n', '--name',
+                    help='name label for output like prowl ; default is fishtank')
+parser.add_argument('-u', '--upper',
+                    help='upper control limit for temperature warnings ; 79.5 default')
+parser.add_argument('-l', '--lower',
+                    help='lower control limit for temperature warnings ; 75.5 default')
 args = parser.parse_args()
 
 if args.dir:
@@ -82,8 +86,8 @@ if not args.test:
         import RPi.GPIO as GPIO
 
 
-if args.label:
-        fishlabel=args.label
+if args.name:
+        fishlabel=args.name
 else:
         fishlabel='Fishtank'
 
@@ -168,13 +172,20 @@ if not args.test:
         device_folder = glob.glob(base_dir + '28*')[0]
         device_file = device_folder + '/w1_slave'
 
+if args.upper:
+        temp_f_hi = float(args.upper)
+        print("\ntemperature high warning limit is " + str(temp_f_hi))
+else:
+        temp_f_hi = 79.5
 
-temp_f_hi = 69.5
-#temp_f_hi = 79.5
+if args.lower:
+        temp_f_lo = float(args.lower)
+        print("\ntemperature lower warning limit is " + str(temp_f_lo))
+else:
+        temp_f_lo = 75.5
 
-temp_f_lo = 65.5
-#temp_f_lo = 75.5
-
+#temp_f_hi = 69.5
+#temp_f_lo = 65.5
 temp_c_test = 26
 
 # prowl vars
