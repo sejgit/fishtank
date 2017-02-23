@@ -47,7 +47,7 @@ from Adafruit_IO import Client
 
 # parsing
 parser = argparse.ArgumentParser(description='Fishtank control & data aquisition')
-parser.add_argument('-t', '--test no I/O', action='store_true',
+parser.add_argument('-t', '--test', action='store_true',
                     help='turn off I/O for offline testing')
 parser.add_argument('-d', '--dir', help='home directory')
 parser.add_argument('-n', '--name',
