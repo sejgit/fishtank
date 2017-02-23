@@ -49,8 +49,6 @@ from Adafruit_IO import Client
 parser = argparse.ArgumentParser(description='Fishtank control & data aquisition')
 parser.add_argument('-t', '--test no I/O', action='store_true',
                     help='turn off I/O for offline testing')
-parser.add_argument('-p', '--plotonly', action='store_true',
-                    help='plot data to AIO and exit')
 parser.add_argument('-d', '--dir', help='home directory')
 parser.add_argument('-n', '--name',
                     help='name label for output like prowl')
@@ -189,14 +187,13 @@ except IOError:
 
 # AIO vars
 try:
-    aiokey = ""
-    aiofeed = ###
+    aiokey = ''
     with open(os.path.join(userdir, ".ssh/.paul1"), "r") as f:
             aiokey = f.read()
             aiokey = aiokey.strip()
-
 except IOError:
     logger.error("Could not read AIO key file")
+aio = Cient(aiokey)
 
 
 ###
@@ -305,12 +302,14 @@ def relay1_off():
 def templog():
     deg_c, deg_f, status = read_temp()
     templogger.info('{2}, {0:.2f}, {1:.2f}'.format(deg_c, deg_f, status))
+    aio.send(args.stream, deg_f)
     return
 
 def dailylog():
     deg_c, deg_f, status = read_temp()
     logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status))
     templogger.info('{2}, {0:.2f}, {1:.2f}'.format(deg_c, deg_f, status))
+    aio.send(args.stream, deg_f)
     return
 
 
@@ -366,7 +365,7 @@ def main():
             hb = heartbeat(hb)
             deg_c, deg_f, status = read_temp()
 
-            # overlay text onto RPi camera
+            # overlay text onto camera
             if not args.test:
                 with open(dir + 'user_annotate.txt', 'w') as f:
                     f.write('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status+hb))
@@ -393,9 +392,6 @@ def main():
 
 
 if __name__== '__main__':
-    if args.plotonly:
-        tempanalysis()
-    else:
-        main()
+    main()
     exit()
 
