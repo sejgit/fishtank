@@ -190,7 +190,7 @@ try:
             aiokey = aiokey.strip()
 except IOError:
     logger.error("Could not read AIO key file")
-aio = Cient(aiokey)
+aio = Client(aiokey)
 
 
 ###
