@@ -52,9 +52,9 @@ parser.add_argument('-t', '--test no I/O', action='store_true',
 parser.add_argument('-d', '--dir', help='home directory')
 parser.add_argument('-n', '--name',
                     help='name label for output like prowl')
-parser.add_argument('-u', '--upper', default='79.5', type=int,
+parser.add_argument('-u', '--upper', default='79.5',
                     help='upper control limit for temperature warnings')
-parser.add_argument('-l', '--lower', default='75.5', type=int,
+parser.add_argument('-l', '--lower', default='75.5',
                     help='lower control limit for temperature warnings')
 parser.add_argument('-s', '--stream', default='fishtemp',
                     help='stream name for AIO')
