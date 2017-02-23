@@ -189,7 +189,7 @@ try:
     with open(os.path.join(userdir, ".ssh/.paul1"), "r") as f:
             ADAFRUIT_IO_USERNAME = f.read()
             ADAFRUIT_IO_KEY = f.read()
-            ADAFRUIT_IO_KEY = aiokey.strip()
+            ADAFRUIT_IO_KEY = ADAFRUIT_IO_KEY.strip()
             print(ADAFRUIT_IO_USERNAME)
             print(ADAFRUIT_IO_KEY)
 except IOError:
