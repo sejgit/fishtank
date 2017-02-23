@@ -133,11 +133,8 @@ templogger.addHandler(tfh)
 logger.info('***start program')
 logger.info('using directory  ' + dir)
 logger.info('testing = ' + str(args.test))
-if args.plotonly:
-        logger.info('***plotonly***')
-else:
-        templogger.info('***start program')
-        templogger.info('testing = ' + str(args.test))
+templogger.info('***start program')
+templogger.info('testing = ' + str(args.test))
 
 
 ###
