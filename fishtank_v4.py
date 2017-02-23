@@ -184,13 +184,17 @@ except IOError:
 
 # AIO vars
 try:
-    aiokey = ''
+    ADAFRUIT_IO_USERNAME = ""
+    ADAFRUIT_IO_KEY = ''
     with open(os.path.join(userdir, ".ssh/.paul1"), "r") as f:
-            aiokey = f.read()
-            aiokey = aiokey.strip()
+            ADAFRUIT_IO_USERNAME = f.read()
+            ADAFRUIT_IO_KEY = f.read()
+            ADAFRUIT_IO_KEY = aiokey.strip()
+            print(ADAFRUIT_IO_USERNAME)
+            print(ADAFRUIT_IO_KEY)
 except IOError:
     logger.error("Could not read AIO key file")
-aio = Client(aiokey)
+aio = Client(ADAFRUIT_IO_KEY)
 
 
 ###
