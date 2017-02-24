@@ -192,6 +192,7 @@ try:
             ADAFRUIT_IO_KEY = ADAFRUIT_IO_KEY.strip()
             print(ADAFRUIT_IO_USERNAME)
             print(ADAFRUIT_IO_KEY)
+            print(args.stream)
 except IOError:
     logger.error("Could not read AIO key file")
 aio = Client(ADAFRUIT_IO_KEY)
