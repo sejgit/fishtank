@@ -186,7 +186,7 @@ except IOError:
 try:
     ADAFRUIT_IO_USERNAME = ""
     ADAFRUIT_IO_KEY = ''
-    with open(os.path.join(userdir, ".ssh/.paul1"), "r") as f:
+    with open(os.path.join(userdir, ".ssh/aio.key"), "r") as f:
             ADAFRUIT_IO_USERNAME = f.read()
             ADAFRUIT_IO_KEY = f.read()
             ADAFRUIT_IO_KEY = ADAFRUIT_IO_KEY.strip()
