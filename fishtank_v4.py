@@ -339,9 +339,9 @@ def scheduling():
     # set scheduled events
     schedule.every().day.at(start_str).do(relay1_on)  # light/bubbler ON in morning
     schedule.every().day.at(end_str).do(relay1_off)   # light/bubler OFF at night
-    schedule.every(10).minutes.do(templog)    # log temp to templogger
+    schedule.every(5).minutes.do(templog)    # log temp to templogger
     schedule.every().day.do(dailylog)    # daily log temp to logger & temp logger
-    schedule.every(15).minutes.do(pushtempstatus) # push temperature status to prowl
+    schedule.every(1).minutes.do(pushtempstatus) # push temperature status to prowl
     logger.info('start light on='+ start_str)
     logger.info('end light off='+ end_str)
     return
