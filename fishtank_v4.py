@@ -305,14 +305,20 @@ def relay1_off():
 def templog():
     deg_c, deg_f, status = read_temp()
     templogger.info('{2}, {0:.2f}, {1:.2f}'.format(deg_c, deg_f, status))
-    aio.send(args.stream, deg_f)
+    try:
+            aio.send(args.stream, deg_f)
+    except AdafruitIOError:
+            logger.error("AIO send error")
     return
 
 def dailylog():
     deg_c, deg_f, status = read_temp()
     logger.info('celcius {0:.2f}  fahrenheit {1:.2f}  {2}'.format(deg_c, deg_f, status))
     templogger.info('{2}, {0:.2f}, {1:.2f}'.format(deg_c, deg_f, status))
-    aio.send(args.stream, deg_f)
+    try:
+            aio.send(args.stream, deg_f)
+    except AdafruitIOError:
+            logger.error("AIO send error")
     return
 
 

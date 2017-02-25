@@ -52,3 +52,72 @@
 2017-02-24 18:59:43 INFO tempanalysis done
 2017-02-24 19:00:43 INFO relay1_on
 2017-02-24 19:01:43 INFO relay1_on
+2017-02-24 19:02:43 INFO relay1_on
+2017-02-24 19:03:44 INFO relay1_on
+2017-02-24 19:04:44 INFO relay1_on
+2017-02-24 19:09:33 INFO ***start program
+2017-02-24 19:09:33 INFO using directory  /home/pi/fishtank/
+2017-02-24 19:09:33 INFO testing = False
+2017-02-24 19:09:34 INFO start light on=05:30
+2017-02-24 19:09:34 INFO end light off=20:45
+2017-02-24 19:09:34 INFO nowtime =19:09
+2017-02-24 19:09:34 INFO relay1_on
+2017-02-24 19:09:34 INFO celcius 25.00  fahrenheit 77.00  ok
+2017-02-24 19:10:35 INFO relay1_on
+2017-02-24 19:11:36 INFO relay1_on
+2017-02-24 19:12:36 INFO relay1_on
+2017-02-24 19:13:36 INFO relay1_on
+2017-02-24 19:14:36 INFO relay1_on
+2017-02-24 19:15:36 INFO relay1_on
+2017-02-24 19:16:36 INFO relay1_on
+2017-02-24 19:17:36 INFO relay1_on
+2017-02-24 19:18:37 INFO relay1_on
+2017-02-24 19:19:37 INFO relay1_on
+2017-02-24 19:20:38 INFO relay1_on
+2017-02-24 19:21:39 INFO relay1_on
+2017-02-24 19:22:39 INFO relay1_on
+2017-02-24 19:23:13 INFO keyboard exception
+2017-02-24 19:24:17 INFO ***start program
+2017-02-24 19:24:17 INFO using directory  /home/pi/fishtank/
+2017-02-24 19:24:17 INFO testing = False
+2017-02-24 19:24:17 INFO start light on=05:30
+2017-02-24 19:24:17 INFO end light off=20:45
+2017-02-24 19:24:17 INFO nowtime =19:24
+2017-02-24 19:24:17 INFO relay1_on
+2017-02-24 19:24:17 INFO celcius 25.00  fahrenheit 77.00  ok
+2017-02-24 19:40:48 INFO ***start program
+2017-02-24 19:40:48 INFO using directory  /home/pi/fishtank/
+2017-02-24 19:40:48 INFO testing = False
+2017-02-24 19:40:48 INFO start light on=05:30
+2017-02-24 19:40:48 INFO end light off=20:45
+2017-02-24 19:40:48 INFO nowtime =19:40
+2017-02-24 19:40:48 INFO relay1_on
+2017-02-24 19:40:48 INFO celcius 25.00  fahrenheit 77.00  ok
+2017-02-24 20:01:59 INFO ***start program
+2017-02-24 20:01:59 INFO using directory  /home/pi/fishtank/
+2017-02-24 20:01:59 INFO testing = False
+2017-02-24 20:01:59 INFO start light on=05:30
+2017-02-24 20:01:59 INFO end light off=20:45
+2017-02-24 20:01:59 INFO nowtime =20:01
+2017-02-24 20:01:59 INFO relay1_on
+2017-02-24 20:01:59 INFO celcius 24.88  fahrenheit 76.78  ok
+2017-02-24 20:03:01 INFO relay1_on
+2017-02-24 20:04:01 INFO relay1_on
+2017-02-24 20:05:01 INFO relay1_on
+2017-02-24 20:06:01 INFO relay1_on
+2017-02-24 20:07:01 INFO relay1_on
+2017-02-24 20:08:02 INFO relay1_on
+2017-02-24 20:09:02 INFO relay1_on
+2017-02-24 20:10:02 INFO relay1_on
+2017-02-24 20:11:02 INFO relay1_on
+2017-02-24 20:12:02 INFO relay1_on
+2017-02-24 20:13:03 INFO relay1_on
+2017-02-24 20:14:04 INFO relay1_on
+2017-02-24 20:15:04 INFO relay1_on
+2017-02-24 20:16:04 INFO relay1_on
+2017-02-24 20:17:04 INFO relay1_on
+2017-02-24 20:18:04 INFO relay1_on
+2017-02-24 20:19:05 INFO relay1_on
+2017-02-24 20:20:05 INFO relay1_on
+2017-02-24 20:21:05 INFO relay1_on
+2017-02-24 20:21:15 INFO keyboard exception
