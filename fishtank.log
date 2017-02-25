@@ -121,3 +121,47 @@
 2017-02-24 20:20:05 INFO relay1_on
 2017-02-24 20:21:05 INFO relay1_on
 2017-02-24 20:21:15 INFO keyboard exception
+2017-02-24 20:21:41 INFO ***start program
+2017-02-24 20:21:41 INFO using directory  /home/pi/fishtank/
+2017-02-24 20:21:41 INFO testing = False
+2017-02-24 20:21:41 INFO start light on=05:30
+2017-02-24 20:21:41 INFO end light off=20:45
+2017-02-24 20:21:41 INFO nowtime =20:21
+2017-02-24 20:21:41 INFO relay1_on
+2017-02-24 20:21:41 INFO celcius 24.88  fahrenheit 76.78  ok
+2017-02-24 20:22:42 INFO relay1_on
+2017-02-24 20:23:43 INFO relay1_on
+2017-02-24 20:24:42 INFO keyboard exception
+2017-02-24 20:25:18 INFO ***start program
+2017-02-24 20:25:18 INFO using directory  /home/pi/fishtank/
+2017-02-24 20:25:18 INFO testing = False
+2017-02-24 20:25:18 INFO start light on=05:30
+2017-02-24 20:25:18 INFO end light off=20:45
+2017-02-24 20:25:18 INFO nowtime =20:25
+2017-02-24 20:25:18 INFO relay1_on
+2017-02-24 20:25:19 INFO celcius 24.81  fahrenheit 76.66  ok
+2017-02-24 20:26:42 INFO relay1_on
+2017-02-24 20:27:43 INFO relay1_on
+2017-02-24 20:28:43 INFO relay1_on
+2017-02-24 20:29:43 INFO relay1_on
+2017-02-24 20:30:43 INFO relay1_on
+2017-02-24 20:31:43 INFO relay1_on
+2017-02-24 20:32:44 INFO relay1_on
+2017-02-24 20:33:44 INFO relay1_on
+2017-02-24 20:34:44 INFO relay1_on
+2017-02-24 20:35:44 INFO relay1_on
+2017-02-24 20:36:45 INFO relay1_on
+2017-02-24 20:37:45 INFO relay1_on
+2017-02-24 20:38:45 INFO relay1_on
+2017-02-24 20:39:46 INFO relay1_on
+2017-02-24 20:40:46 INFO relay1_on
+2017-02-24 20:41:46 INFO relay1_on
+2017-02-24 20:42:46 INFO relay1_on
+2017-02-24 20:43:46 INFO relay1_on
+2017-02-24 20:44:46 INFO relay1_on
+2017-02-24 20:45:47 INFO relay1_off
+2017-02-24 20:45:47 INFO relay1_off
+2017-02-24 20:46:48 INFO relay1_off
+2017-02-24 20:47:48 INFO relay1_off
+2017-02-24 20:48:48 INFO relay1_off
+2017-02-24 20:49:48 INFO relay1_off
