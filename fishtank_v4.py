@@ -307,8 +307,8 @@ def templog():
     templogger.info('{2}, {0:.2f}, {1:.2f}'.format(deg_c, deg_f, status))
     try:
             aio.send(args.stream, deg_f)
-    except AdafruitIOError:
-            logger.error("AIO send error")
+    except:
+            logger.error("AIO IO error")
     return
 
 def dailylog():
@@ -317,8 +317,8 @@ def dailylog():
     templogger.info('{2}, {0:.2f}, {1:.2f}'.format(deg_c, deg_f, status))
     try:
             aio.send(args.stream, deg_f)
-    except AdafruitIOError:
-            logger.error("AIO send error")
+    except:
+            logger.error("AIO IO error")
     return
 
 
