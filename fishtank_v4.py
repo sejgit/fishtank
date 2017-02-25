@@ -43,7 +43,7 @@ import sys
 import glob
 import paul
 import argparse
-from Adafruit_IO import Client
+from Adafruit_IO import Client, AdafruitIOError
 
 # parsing
 parser = argparse.ArgumentParser(description='Fishtank control & data aquisition')

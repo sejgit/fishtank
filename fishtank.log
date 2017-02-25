@@ -165,3 +165,11 @@
 2017-02-24 20:47:48 INFO relay1_off
 2017-02-24 20:48:48 INFO relay1_off
 2017-02-24 20:49:48 INFO relay1_off
+2017-02-24 20:50:52 INFO ***start program
+2017-02-24 20:50:52 INFO using directory  /home/pi/fishtank/
+2017-02-24 20:50:52 INFO testing = False
+2017-02-24 20:50:52 INFO start light on=05:30
+2017-02-24 20:50:52 INFO end light off=20:45
+2017-02-24 20:50:52 INFO nowtime =20:50
+2017-02-24 20:50:52 INFO relay1_off
+2017-02-24 20:50:52 INFO celcius 85.00  fahrenheit 185.00  hi
