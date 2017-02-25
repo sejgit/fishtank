@@ -187,9 +187,10 @@ try:
     ADAFRUIT_IO_USERNAME = ""
     ADAFRUIT_IO_KEY = ''
     with open(os.path.join(userdir, ".ssh/aio.key"), "r") as f:
-            ADAFRUIT_IO_USERNAME = f.read()
-            ADAFRUIT_IO_KEY = f.read()
-            ADAFRUIT_IO_KEY = ADAFRUIT_IO_KEY.strip()
+            ADAFRUIT_IO_USERNAME = f.readline()
+            ADAFRUIT_IO_USERNAME = ADAFRUIT_IO_USERNAME.rstrip()
+            ADAFRUIT_IO_KEY = f.readline()
+            ADAFRUIT_IO_KEY = ADAFRUIT_IO_KEY.rstrip()
             print("'" + ADAFRUIT_IO_USERNAME + "'")
             print("'" + ADAFRUIT_IO_KEY + "'")
             print("'" + args.stream + "'")
