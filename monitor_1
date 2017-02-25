@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# monitor command for motioneye #1 camera
+
+# echo to stream user_annotate.txt data from fishtank program
+# then overlay on motioneye camera picture
+# this file needs to reside in /etc/motioneye/ & be executable - chmod +x
+# echo to std error number of secs to next run (default is 60s)
+
+
+
+# 2017 02 25 init SeJ
+
+
+temp=$(cat /home/pi/fishtank/user_annotate.txt)
+echo "${temp}"
+echo 120 1>&2
+
