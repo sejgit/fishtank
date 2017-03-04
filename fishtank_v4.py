@@ -23,7 +23,7 @@
 # 2017 02 17 changed from rpi-cam to motioneye, finally round temp to 2 digits
 # 2017 02 17 changed temperature annotation file location for above
 # 2017 02 23 create adafruit io version -- remove matlib & panda
-
+# 2017 03 04 mode prowl function to return success so it will keep trying to push after reset in 1min
 
 # todo: add annotation to motioneye camera & perhaps buttons for lights
 # todo: make temperature ranges a parameter instead of hard variable
@@ -240,10 +240,11 @@ def prowl(event, description, pri=None):
                    description,
                    url=None,
                    priority=pri)
-
+            success = True
         except IOError:
             logger.error('prowl error')
-        return
+            success = False
+        return success
 
 # temp prob def
 def read_temp_raw():
@@ -283,8 +284,8 @@ def pushtempstatus():
     if "status_old" not in pushtempstatus.__dict__: pushtempstatus.status_old = 'first run'
     deg_c, deg_f, status = read_temp()
     if status != pushtempstatus.status_old:
-        prowl('temperature ', (" *** " + status + " " + str(deg_f) + ' ***'), ((status == 'ok') * -2))
-        pushtempstatus.status_old = status
+        success=prowl('temperature ', (" *** " + status + " " + str(deg_f) + ' ***'), ((status == 'ok') * -2))
+        if success: pushtempstatus.status_old = status
     return
 
 # relay def
