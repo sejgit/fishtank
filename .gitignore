@@ -3,7 +3,15 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# paul extensions
+# SeJ adds
+.saves/
+*~
+*.json
+state/
+*.log
+*.log.*
+*.out
+*.out.*
 *.paul*
 
 # C extensions
