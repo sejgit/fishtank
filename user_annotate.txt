@@ -1,1 +1,1 @@
-celcius 24.94  fahrenheit 76.89  ok 
+celcius 19.31  fahrenheit 66.76  ok*
