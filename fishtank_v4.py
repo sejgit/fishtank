@@ -24,9 +24,8 @@
 # 2017 02 17 changed temperature annotation file location for above
 # 2017 02 23 create adafruit io version -- remove matlib & panda
 # 2017 03 04 mode prowl function to return success so it will keep trying to push after reset in 1min
+# 2017 04 23 moving to systemd add gpio warning off
 
-# todo: add annotation to motioneye camera & perhaps buttons for lights
-# todo: make temperature ranges a parameter instead of hard variable
 
 ###
 ### imports and parse args
@@ -143,6 +142,7 @@ templogger.info('testing = ' + str(args.test))
 
 # relay variables
 if not args.test:
+        GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(17, GPIO.OUT)
 start = dt.time(5, 30)
