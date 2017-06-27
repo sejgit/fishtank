@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 # SeJ adds
+user_annotate.txt
 .saves/
 *~
 *.json
