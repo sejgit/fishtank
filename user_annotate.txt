@@ -1,1 +1,1 @@
-celcius 24.00  fahrenheit 75.20  ok 
+celcius 24.12  fahrenheit 75.42  ok 
