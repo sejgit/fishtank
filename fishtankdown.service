@@ -6,7 +6,7 @@ After=multi-user.target
 User=pi
 Type=simple
 WorkingDirectory=/home/pi/fishtank
-ExecStart=/usr/bin/python3 /home/pi/fishtank/fishtank_v4.py -l 65.5 -u 75.5 -n 'Basementfish' -s downfishtemp
+ExecStart=/usr/bin/python3 /home/pi/fishtank/fishtank_v4.py -l 69.5 -u 79.5 -n 'Basementfish' -s downfishtemp
 Restart=always
 RestartSec=30
 
