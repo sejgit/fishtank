@@ -1,1 +1,0 @@
-celcius 24.12  fahrenheit 75.42  ok 
