@@ -25,7 +25,7 @@
 # 2017 02 23 create adafruit io version -- remove matlib & panda
 # 2017 03 04 mode prowl function to return success so it will keep trying to push after reset in 1min
 # 2017 04 23 moving to systemd add gpio warning off
-
+# 2017 06 02 adding heartbeat & temperature to ISY
 
 ###
 ### imports and parse args
@@ -43,6 +43,7 @@ import glob
 import paul
 import argparse
 from Adafruit_IO import Client, AdafruitIOError
+import requests
 
 # parsing
 parser = argparse.ArgumentParser(description='Fishtank control & data aquisition')
@@ -57,6 +58,8 @@ parser.add_argument('-l', '--lower', default='75.5',
                     help='lower control limit for temperature warnings')
 parser.add_argument('-s', '--stream', default='fishtemp',
                     help='stream name for AIO')
+parser.add_argument('-i', '--isy', default=0, type=int,
+                    help='isy state var number for ISY temp and heartbeat')
 args = parser.parse_args()
 
 if args.dir:
@@ -198,6 +201,22 @@ except IOError:
     logger.error("Could not read AIO key file")
 aio = Client(ADAFRUIT_IO_KEY)
 
+# ISY vars
+try:
+    isyip = "" # use http://10.0.1.x format
+    isylogin = ""
+    isypass = ""
+    with open(os.path.join(userdir, ".ssh/isy.auth"), "r") as f:
+            isyip  = f.readline()
+            isyip = isyip.rstrip()
+            isylogin  = f.readline()
+            isylogin = isylogin.rstrip()
+            isypass  = f.readline()
+            isypass = isypass.rstrip()
+            logger.info("ISY IP = '" + isyip + "'")
+
+except IOError:
+    logger.error("Could not read ISY auth file")
 
 ###
 ### defined functions
@@ -286,6 +305,22 @@ def pushtempstatus():
     if status != pushtempstatus.status_old:
         success=prowl('temperature ', (" *** " + status + " " + str(deg_f) + ' ***'), ((status == 'ok') * -2))
         if success: pushtempstatus.status_old = status
+        try: # status
+                    s=isyip+'/rest/vars/set/2/'+str(args.isy+2)+'/'+str(int(status == 'ok'))
+                    r=requests.get(s, auth=(isylogin, isypass))
+                    if r.status_code != requests.codes.ok:
+                            logger.error('isy update temp error ='
+                                         +str(r.status_code))
+        except:
+                    logger.error('isy update status exception')
+    try: # temp
+            s=isyip+'/rest/vars/set/2/'+str(args.isy)+'/'+str(deg_f)
+            r=requests.get(s, auth=(isylogin, isypass))
+            if r.status_code != requests.codes.ok:
+                    logger.error('isy update temp error ='
+                                         +str(r.status_code))
+    except:
+                    logger.error('isy update temperature exception')
     return
 
 # relay def
@@ -327,8 +362,16 @@ def dailylog():
 def heartbeat(ast):
     if ast==" ":
         ast = "*"
+        s=isyip+'/rest/vars/set/2/'+str(args.isy + 1)+'/1'
     else:
         ast = " "
+        s=isyip+'/rest/vars/set/2/'+str(args.isy + 1)+'/0'
+    try: # heartbeat
+        r=requests.get(s, auth=(isylogin, isypass))
+        if r.status_code != requests.codes.ok:
+                logger.error('isy heartbeat error =' + str(r.status_code))
+    except:
+           logger.error('isy heartbeat exception')
     return ast
 
 
@@ -404,4 +447,3 @@ def main():
 if __name__== '__main__':
     main()
     exit()
-
