@@ -27,6 +27,7 @@
 # 2017 04 23 moving to systemd add gpio warning off
 # 2018 06 02 adding heartbeat & temperature to ISY
 # 2018 06 03 cleanup code & rename to just fishtank.py
+# 2019 03 03 update Adafruit_IO Client to include both username and key
 
 #
 # imports and parse args
@@ -205,7 +206,7 @@ try:
             print("'" + args.stream + "'")
 except IOError:
     logger.error("Could not read AIO key file")
-aio = Client(ADAFRUIT_IO_KEY)
+aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
 # ISY vars
 try:
